@@ -1,0 +1,48 @@
+{
+  "name": "ng2-mdl",
+  "version": "0.0.1",
+  "description": "A tiny Angular 2 wrapper for Material Design Lite",
+  "main": "ng2-mdl.js",
+  "scripts": {
+    "postinstall": "npm run typings install",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "start": "concurrent \"npm run tsc:w\" \"npm run lite\" ",
+    "typings": "typings"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabbirrahman/ng2-mdl.git"
+  },
+  "keywords": [
+    "angular2",
+    "ng2",
+    "Library",
+    "mdl",
+    "component"
+  ],
+  "author": "sabbir.jassim@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sabbirrahman/ng2-mdl/issues"
+  },
+  "homepage": "https://sabbirrahman.github.io/ng2-mdl",
+  "devDependencies": {
+    "concurrently": "^1.0.0",
+    "lite-server": "^2.0.1",
+    "typescript": "^1.7.5",
+    "typings": "^0.6.8"
+  },
+  "dependencies": {
+    "angular2": "2.0.0-beta.6",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
+    "material-design-lite": "^1.1.1",
+    "normalize.css": "^3.0.3",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "systemjs": "0.19.20",
+    "zone.js": "0.5.14"
+  }
+}
