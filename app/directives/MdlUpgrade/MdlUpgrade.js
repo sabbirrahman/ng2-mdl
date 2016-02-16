@@ -21,10 +21,10 @@ System.register(['angular2/core'], function(exports_1) {
                     this.elem = elem;
                 }
                 MdlUpgrade.prototype.ngOnInit = function () {
-                    componentHandler.upgradeElements(this.elem.navtiveElement);
+                    window.componentHandler.upgradeElements(this.elem.nativeElement);
                 };
                 MdlUpgrade = __decorate([
-                    core_1.Component({
+                    core_1.Directive({
                         selector: '[mdlUpgrade]'
                     }), 
                     __metadata('design:paramtypes', [core_1.ElementRef])
