@@ -1,0 +1,38 @@
+<section class="section--center mdl-grid mdl-grid--no-spacing">
+ <div class="mdl-cell mdl-cell--8-col">
+ <h4>Text Inputs</h4>
+ <section>
+   <h5>Import &amp; Inject</h5>
+   <pre><code class="typescript">
+import {MdlTextFieldComponent} from 'ng2-mdl/ng2-mdl';
+@Component({
+  ...
+  directives: [MdlTextFieldComponent],
+  ...
+})
+  </code></pre>
+ </section>
+  <section>
+    <h5>Uses:</h5>
+<pre><code class="typescript">
+  &lt;mdlTextField label="eMail" type="email" errMsg="Invalid email!" [(ngModel)]="email"&gt;&lt;/mdlTextField&gt;
+  or
+  &lt;mdl-text-field label="eMail" type="email" errMsg="Invalid email!" [(ngModel)]="email"&gt;&lt;/mdl-text-field&gt;
+</code></pre>
+  <mdlTextField label="eMail" type="email" errMsg="Invalid email!" [(ngModel)]="email"></mdlTextField> {{ email }}
+  </section>
+  <section>
+    <h5>Supported Attributes</h5>
+    This component comes with supports for angular2 ngModel &amp; ngFormControl directives. Here are some attributes you can use to pass data to the component.
+    <ul>
+      <li><strong>id</strong>: id of the input element.</li>
+      <li><strong>class</strong>: class of the input element.</li>
+      <li><strong>type</strong>: type of the input element. (default: text)</li>
+      <li><strong>value</strong>: value of the input element.</li>
+      <li><strong>label</strong>: text of the label element.</li>
+      <li><strong>floating</strong>: floating label. (default: true)</li>
+      <li><strong>errMsg</strong>: error message to display when HTML5 form validation fails.</li>
+    </ul>
+  </section>
+  </div>
+</section>

@@ -3,10 +3,14 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Component, ViewEncapsulation} from 'angular2/core';
 // MDL Directives
 import {MdlUpgradeDirective} from '../directives/mdl-upgrade.directive';
+// Services
+import { MdlConfigService } from '../services/mdl-config.service'
 // Router Components
-import {DashboardComponent}      from './router-components/dashboard/Dashboard.component';
-import {MdlUpgradePageComponent} from './router-components/mdl-upgrade-page/mdl-upgrade-page.component';
+import {DashboardComponent}        from './router-components/dashboard/Dashboard.component';
+import {MdlUpgradePageComponent}   from './router-components/mdl-upgrade-page/mdl-upgrade-page.component';
+import {MdlTextFieldPageComponent} from './router-components/mdl-text-field-page/mdl-text-field-page.component';
 require('material-design-lite/dist/material');
+
 @Component({
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
@@ -19,10 +23,12 @@ require('material-design-lite/dist/material');
   directives: [
     ROUTER_DIRECTIVES,
     MdlUpgradeDirective
-  ]
+  ],
+  providers: [MdlConfigService]
 })
 @RouteConfig([
-  { path: '/',           component: DashboardComponent,      name: 'Dashboard'      },
-  { path: '/mdlUpgrade', component: MdlUpgradePageComponent, name: 'MdlUpgradePage' }
+  { path: '/',             component: DashboardComponent,        as: 'Dashboard'        },
+  { path: '/mdl-upgrade',   component: MdlUpgradePageComponent,   as: 'MdlUpgradePage'   },
+  { path: '/mdl-text-field', component: MdlTextFieldPageComponent, as: 'MdlTextFieldPage' }
 ])
 export class App { }

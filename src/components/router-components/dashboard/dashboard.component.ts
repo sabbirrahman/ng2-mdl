@@ -1,4 +1,5 @@
-import {Component} from 'angular2/core';
+// Import from Angular2
+import { Component } from 'angular2/core';
 
 @Component({
   selector: 'dashboard',
