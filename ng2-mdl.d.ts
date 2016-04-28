@@ -1,1 +1,1 @@
-export * from './app/directives/MdlUpgrade/MdlUpgrade';
+export * from './src/directives/MdlUpgrade/MdlUpgrade';
