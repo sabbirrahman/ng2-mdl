@@ -1,0 +1,37 @@
+<section class="section--center mdl-grid mdl-grid--no-spacing">
+ <div class="mdl-cell mdl-cell--8-col">
+ <h4>Text Inputs</h4>
+ <section>
+   <h5>Import &amp; Inject</h5>
+   <pre><code class="typescript">
+import {MdlCheckBoxComponent} from 'ng2-mdl/ng2-mdl';
+@Component({
+  ...
+  directives: [MdlCheckBoxComponent],
+  ...
+})
+  </code></pre>
+ </section>
+  <section>
+    <h5>Uses:</h5>
+<pre><code class="typescript">
+  &lt;mdlCheckBox label="Are you ready?" [(ngModel)]="example"&gt;&lt;/mdlCheckBox&gt;
+  or
+  &lt;mdl-check-box label="Are you ready?" [(ngModel)]="example"&gt;&lt;/mdl-check-box&gt;
+</code></pre>
+  <mdlCheckBox label="Are you ready?" [(ngModel)]="ready" id="abc"></mdlCheckBox>
+  <p>{{ready ? "Yes! I am." : "Not Yet!"}}</p>
+
+  </section>
+  <section>
+    <h5>Supported Attributes</h5>
+    This component comes with supports for angular2 ngModel &amp; ngFormControl directives. Here are some attributes you can use to pass data to the component.
+    <ul>
+      <li><strong>class</strong>: class of the input element.</li>
+      <li><strong>value</strong>: value of the input element. (default: false)</li>
+      <li><strong>label</strong>: text of the label element.</li>
+      <li><strong>ripple</strong>: ripple effect for the checkbox. (default: true)</li>
+    </ul>
+  </section>
+  </div>
+</section>

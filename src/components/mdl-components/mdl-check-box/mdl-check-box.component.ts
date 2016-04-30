@@ -6,37 +6,33 @@ import { MdlUpgradeDirective } from '../../../directives/mdl-upgrade.directive'
 // Services
 import { MdlConfigService } from '../../../services/mdl-config.service'
 
-const MDL_TEXT_FIELD_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
-  useExisting: forwardRef(() => MdlTextFieldComponent), multi: true }
+const MDL_CHECK_BOX_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
+  useExisting: forwardRef(() => MdlCheckBoxComponent), multi: true }
 );
 
 @Component({
-  selector: 'mdlTextField, mdl-text-field',
+  selector: 'mdlCheckBox, mdl-check-box',
   template: `
-  <div
-    mdl-upgrade [class.is-dirty]="value"
-    class="mdl-textfield mdl-js-textfield "
-    [class.mdl-textfield--floating-label]="floating"
+  <label
+    mdlUpgrade [class.is-checked]="value"
+    class="mdl-checkbox mdl-js-checkbox"
+    [ngClass]="{'mdl-js-ripple-effect': ripple}"
   >
-    <input #inp class="mdl-textfield__input"
-      [id]="id" [type]="type" [value]="value" [ngClass]="class"
-      (blur)="onTouched()" (keyup)="changes.emit(inp.value)"
-    >
-    <label [attr.for]="id" class="mdl-textfield__label">{{label}}</label>
-    <span class="mdl-textfield__error">{{errMsg}}</span>
-  </div>
+    <input #inp type="checkbox" class="mdl-checkbox__input"
+      [id]="id" [checked]="value" [ngClass]="class"
+      (blur)="onTouched()" (change)="changes.emit(inp.checked);"
+    />
+    <span class="mdl-checkbox__label">{{label}}</span>
+  </label>
   `,
   directives: [MdlUpgradeDirective],
-  providers: [MDL_TEXT_FIELD_VALUE_ACCESSOR]
+  providers: [MDL_CHECK_BOX_VALUE_ACCESSOR]
 })
-export class MdlTextFieldComponent {
-  @Input() id: string;
+export class MdlCheckBoxComponent {
   @Input() class: string;
-  @Input() errMsg: string;
-  @Input() value: string = '';
-  @Input() type: string = 'text';
   @Input() label: string;
-  @Input() floating: boolean = this.mdlConfig.floating;
+  @Input() value: boolean = false;
+  @Input() ripple: boolean = this.mdlConfig.rippleEffect;
   @Output() changes = new EventEmitter();
 
   constructor(
