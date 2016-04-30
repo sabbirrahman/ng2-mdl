@@ -10,6 +10,7 @@ import {DashboardComponent}        from './router-components/dashboard/Dashboard
 import {MdlUpgradePageComponent}   from './router-components/mdl-upgrade-page/mdl-upgrade-page.component';
 import {MdlTextFieldPageComponent} from './router-components/mdl-text-field-page/mdl-text-field-page.component';
 import {MdlCheckBoxPageComponent}  from './router-components/mdl-check-box-page/mdl-check-box-page.component';
+import {MdlRadioPageComponent}     from './router-components/mdl-radio-page/mdl-radio-page.component';
 require('material-design-lite/dist/material');
 
 @Component({
@@ -31,6 +32,7 @@ require('material-design-lite/dist/material');
   { path: '/',               component: DashboardComponent,        as: 'Dashboard'        },
   { path: '/mdl-upgrade',    component: MdlUpgradePageComponent,   as: 'MdlUpgradePage'   },
   { path: '/mdl-text-field', component: MdlTextFieldPageComponent, as: 'MdlTextFieldPage' },
-  { path: '/mdl-check-box',  component: MdlCheckBoxPageComponent,  as: 'MdlCheckBoxPage'  }
+  { path: '/mdl-check-box',  component: MdlCheckBoxPageComponent,  as: 'MdlCheckBoxPage'  },
+  { path: '/mdl-radio'    ,  component: MdlRadioPageComponent,     as: 'MdlRadioPage'     }
 ])
 export class App { }

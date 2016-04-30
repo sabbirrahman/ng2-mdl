@@ -6,32 +6,34 @@ import { MdlUpgradeDirective } from '../../../directives/mdl-upgrade.directive'
 // Services
 import { MdlConfigService } from '../../../services/mdl-config.service'
 
-const MDL_CHECK_BOX_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
-  useExisting: forwardRef(() => MdlCheckBoxComponent), multi: true }
+const MDL_RADIO_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
+  useExisting: forwardRef(() => MdlRadioComponent), multi: true }
 );
 
 @Component({
-  selector: 'mdlCheckBox, mdl-check-box',
+  selector: 'mdlRadio, mdl-radio',
   template: `
   <label
-    mdlUpgrade [class.is-checked]="value"
-    class="mdl-checkbox mdl-js-checkbox"
+    mdlUpgrade [class.is-checked]="value === val"
+    class="mdl-radio mdl-js-radio"
     [ngClass]="{'mdl-js-ripple-effect': ripple}"
   >
-    <input #inp [checked]="value" [ngClass]="class"
-      type="checkbox" class="mdl-checkbox__input"
-      (blur)="onTouched()" (change)="changes.emit(inp.checked)"
+    <input #inp type="radio" class="mdl-radio__button"
+      [value]="value" [ngClass]="class" [name]="name"
+      (blur)="onTouched()" (change)="changes.emit(inp.value)"
     />
-    <span class="mdl-checkbox__label">{{label}}</span>
+    <span class="mdl-radio__label">{{label}}</span>
   </label>
   `,
   directives: [MdlUpgradeDirective],
-  providers: [MDL_CHECK_BOX_VALUE_ACCESSOR]
+  providers: [MDL_RADIO_VALUE_ACCESSOR]
 })
-export class MdlCheckBoxComponent {
+export class MdlRadioComponent {
+  val: string;
+  @Input() name: string;
   @Input() class: string;
   @Input() label: string;
-  @Input() value: boolean = false;
+  @Input() value: string = '';
   @Input() ripple: boolean = this.mdlConfig.rippleEffect;
   @Output() changes = new EventEmitter();
 
@@ -44,7 +46,7 @@ export class MdlCheckBoxComponent {
   onChange = (_) => { console.log(); };
   @HostListener('blur', ['$event'])
   onTouched = () => { console.log(); };
-  writeValue(value: any): void { this.value = value; }
+  writeValue(value: any): void { this.val = value; }
   registerOnChange(fn: (_: any) => void): void { this.onChange = fn; }
   registerOnTouched(fn: () => void): void { this.onTouched = fn; }
 }
