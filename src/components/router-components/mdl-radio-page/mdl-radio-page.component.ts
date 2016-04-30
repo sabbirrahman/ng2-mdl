@@ -1,7 +1,7 @@
 // Imports from Angular2
 import { Component } from 'angular2/core';
 import { FORM_DIRECTIVES } from 'angular2/common';
-// mdlTextField
+// mdlRadio
 import { MdlRadioComponent } from '../../mdl-components/mdl-radio/mdl-radio.component';
 let hljs = require('highlight.js/lib/highlight.js');
 

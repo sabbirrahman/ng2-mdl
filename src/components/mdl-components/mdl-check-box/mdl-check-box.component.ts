@@ -28,7 +28,7 @@ const MDL_CHECK_BOX_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
   directives: [MdlUpgradeDirective],
   providers: [MDL_CHECK_BOX_VALUE_ACCESSOR]
 })
-export class MdlCheckBoxComponent {
+export class MdlCheckBoxComponent implements ControlValueAccessor {
   @Input() class: string;
   @Input() label: string;
   @Input() value: boolean = false;

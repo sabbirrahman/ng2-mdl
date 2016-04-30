@@ -28,7 +28,7 @@ const MDL_RADIO_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
   directives: [MdlUpgradeDirective],
   providers: [MDL_RADIO_VALUE_ACCESSOR]
 })
-export class MdlRadioComponent {
+export class MdlRadioComponent implements ControlValueAccessor {
   val: string;
   @Input() name: string;
   @Input() class: string;

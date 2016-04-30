@@ -1,0 +1,41 @@
+<section class="section--center mdl-grid mdl-grid--no-spacing">
+ <div class="mdl-cell mdl-cell--8-col">
+ <h4>Button</h4>
+ <section>
+   <h5>Import &amp; Inject</h5>
+   <pre><code class="typescript">
+import {MdlButtonComponent} from 'ng2-mdl/ng2-mdl';
+@Component({
+  ...
+  directives: [MdlButtonComponent],
+  ...
+})
+  </code></pre>
+ </section>
+  <section>
+    <h5>Uses:</h5>
+<pre><code class="typescript">
+  &lt;mdlButton [raised]="false"&gt;Button&lt;/mdlButton&gt;
+  &lt;mdlButton [raised]="false" theme="primary"&gt;Button&lt;/mdlButton&gt;
+  &lt;mdlButton [raised]="false" theme="accent" &gt;Button&lt;/mdlButton&gt;
+  &lt;mdlButton&gt;Button&lt;/mdlButton&gt;
+  &lt;mdlButton theme="primary"&gt;Button&lt;/mdlButton&gt;
+  &lt;mdlButton theme="accent"&gt;Button&lt;/mdlButton&gt;
+</code></pre>
+  <mdlButton [raised]="false">Button</mdlButton>
+  <mdlButton theme="primary" [raised]="false">Button</mdlButton>
+  <mdlButton theme="accent" [raised]="false">Button</mdlButton>
+  <mdlButton>Button</mdlButton>
+  <mdlButton theme="primary">Button</mdlButton>
+  <mdlButton theme="accent">Button</mdlButton>
+  </section>
+  <section>
+    <h5>Supported Attributes</h5>
+    <ul>
+      <li><strong>theme</strong>: theme of the button. (available values: 'primary' or 'accent', default: null)</li>
+      <li><strong>raised</strong>: for raised or flat button. (default: true)</li>
+      <li><strong>ripple</strong>: ripple effect for the button. (default: true)</li>
+    </ul>
+  </section>
+  </div>
+</section>

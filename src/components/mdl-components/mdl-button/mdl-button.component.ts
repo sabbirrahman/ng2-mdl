@@ -1,0 +1,32 @@
+// Imports from Angular2
+import { Input, Component } from 'angular2/core';
+// Directives
+import { MdlUpgradeDirective } from '../../../directives/mdl-upgrade.directive'
+// Services
+import { MdlConfigService } from '../../../services/mdl-config.service'
+
+@Component({
+  selector: 'mdlButton, mdl-button',
+  template: `
+    <button class="mdl-button mdl-js-button"
+      [ngClass]="{'mdl-js-ripple-effect': ripple}"
+      [class.mdl-button--primary]="theme === 'primary' && !raised"
+      [class.mdl-button--colored]="theme === 'primary' && raised"
+      [class.mdl-button--accent]="theme === 'accent'"
+      [class.mdl-button--raised]="raised"
+      (disabled)="disabled"
+    >
+      <ng-content></ng-content>
+    </button>
+  `,
+  directives: [MdlUpgradeDirective]
+})
+export class MdlButtonComponent {
+  @Input() theme: string;
+  @Input() raised: boolean = true;
+  @Input() ripple: boolean = this.mdlConfig.rippleEffect;
+
+  constructor(
+    public mdlConfig: MdlConfigService
+  ) {}
+}

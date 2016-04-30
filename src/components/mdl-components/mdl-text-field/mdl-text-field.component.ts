@@ -29,7 +29,7 @@ const MDL_TEXT_FIELD_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
   directives: [MdlUpgradeDirective],
   providers: [MDL_TEXT_FIELD_VALUE_ACCESSOR]
 })
-export class MdlTextFieldComponent {
+export class MdlTextFieldComponent implements ControlValueAccessor {
   @Input() id: string;
   @Input() class: string;
   @Input() errMsg: string;

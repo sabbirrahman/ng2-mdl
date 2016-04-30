@@ -28,7 +28,7 @@ const MDL_SWITCH_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
   directives: [MdlUpgradeDirective],
   providers: [MDL_SWITCH_VALUE_ACCESSOR]
 })
-export class MdlSwitchComponent {
+export class MdlSwitchComponent implements ControlValueAccessor {
   @Input() class: string;
   @Input() label: string;
   @Input() value: string = '';
