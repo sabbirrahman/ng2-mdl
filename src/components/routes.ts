@@ -7,6 +7,7 @@ import {MdlRadioPageComponent}     from './router-components/mdl-radio-page/mdl-
 import {MdlSwitchPageComponent}    from './router-components/mdl-switch-page/mdl-switch-page.component';
 import {MdlButtonPageComponent}    from './router-components/mdl-button-page/mdl-button-page.component';
 import {MdlProgressPageComponent}  from './router-components/mdl-progress-page/mdl-progress-page.component';
+import {MdlSpinnerPageComponent}   from './router-components/mdl-spinner-page/mdl-spinner-page.component';
 
 export let Routes = [
   { path: '/',               component: DashboardComponent,        as: 'Dashboard'        },
@@ -16,5 +17,6 @@ export let Routes = [
   { path: '/mdl-radio',      component: MdlRadioPageComponent,     as: 'MdlRadioPage'     },
   { path: '/mdl-switch',     component: MdlSwitchPageComponent,    as: 'MdlSwitchPage'    },
   { path: '/mdl-button',     component: MdlButtonPageComponent,    as: 'MdlButtonPage'    },
-  { path: '/mdl-progress',   component: MdlProgressPageComponent,  as: 'MdlProgressPage'  }
+  { path: '/mdl-progress',   component: MdlProgressPageComponent,  as: 'MdlProgressPage'  },
+  { path: '/mdl-spinner',    component: MdlSpinnerPageComponent,   as: 'MdlSpinnerPage'  }
 ];

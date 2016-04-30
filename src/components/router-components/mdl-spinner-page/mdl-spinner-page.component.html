@@ -1,0 +1,35 @@
+<section class="section--center mdl-grid mdl-grid--no-spacing">
+ <div class="mdl-cell mdl-cell--8-col">
+ <h4>Spinner</h4>
+ <section>
+   <h5>Import &amp; Inject</h5>
+   <pre><code class="typescript">
+import {MdlSpinnerComponent} from 'ng2-mdl/ng2-mdl';
+@Component({
+  ...
+  directives: [MdlSpinnerComponent],
+  ...
+})
+  </code></pre>
+ </section>
+  <section>
+    <h5>Uses:</h5>
+<pre><code class="typescript">
+  &lt;mdlSpinner&gt;&lt;/mdlSpinner&gt;
+  &lt;mdlSpinner [singleColor]="true"&gt;&lt;/mdlSpinner&gt;
+  &lt;mdlSpinner [active]="false"&gt;&lt;/mdlSpinner&gt;
+</code></pre>
+    <mdlSpinner></mdlSpinner>
+    <mdlSpinner [singleColor]="true"></mdlSpinner>
+    <mdlSpinner [active]="false"></mdlSpinner>
+  </section>
+  <section>
+    <h5>Supported Attributes</h5>
+    <ul>
+      <li><strong>spinner</strong>: spinner of the spinner bar.</li>
+      <li><strong>buffer</strong>: buffered spinner of the spinner bar.</li>
+      <li><strong>indeterminate</strong>: indeterminate state. (default: false)</li>
+    </ul>
+  </section>
+  </div>
+</section>
