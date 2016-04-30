@@ -1,0 +1,43 @@
+<section class="section--center mdl-grid mdl-grid--no-spacing">
+ <div class="mdl-cell mdl-cell--8-col">
+ <h4>Progress</h4>
+ <section>
+   <h5>Import &amp; Inject</h5>
+   <pre><code class="typescript">
+import {MdlLayoutComponent} from 'ng2-mdl/ng2-mdl';
+@Component({
+  ...
+  directives: [MdlLayoutComponent],
+  ...
+})
+  </code></pre>
+ </section>
+  <section>
+    <h5>Uses:</h5>
+<pre><code class="typescript">
+  &lt;mdlLayout&gt;&lt;/mdlLayout&gt;
+</code></pre>
+  </section>
+  <section>
+    <h5>Supported Attributes</h5>
+    <ul>
+      <li><strong>headerTitle</strong>: title for the header.</li>
+      <li><strong>drawerTitle</strong>: title for the drawer.</li>
+      <li><strong>headerMenu</strong>: MenuItem array for the header menu.</li>
+      <li><strong>drawerMenu</strong>: MenuItem array for the drawer menu.</li>
+      <li><strong>transparent</strong>: transparent header. (default: false)</li>
+      <!-- <li><strong>fixedHeader</strong>: fixed header. (default: false)</li> -->
+      <li><strong>fixedDrawer</strong>: fixed drawer. (default: false)</li>
+      <li><strong>noHeader</strong>: no header. (default: false)</li>
+      <li><strong>waterfall</strong>: waterfall header. (default: false)</li>
+    </ul>
+<pre><code class="typescript">
+  interface MenuItem {
+    title: string; // Title that will appear in the menu for a menu item.
+    link: string; // Link for the menu item. Don't need to provide if using routerLink
+    routerLink: string; // routerLink for angular 2 router.
+  }
+</code></pre>
+  </section>
+  </div>
+</section>
