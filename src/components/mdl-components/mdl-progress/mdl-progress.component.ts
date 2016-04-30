@@ -1,0 +1,42 @@
+// Imports from Angular2
+import { Input, Component, ElementRef, OnChanges } from 'angular2/core';
+// Directives
+import { MdlUpgradeDirective } from '../../../directives/mdl-upgrade.directive'
+// Services
+import { MdlConfigService } from '../../../services/mdl-config.service'
+
+@Component({
+  selector: 'mdlProgress, mdl-progress',
+  template: `
+    <div mdl-upgrade [id]="id"
+      class="mdl-progress mdl-js-progress"
+      [class.mdl-progress__indeterminate]="indeterminate"
+    >
+    </div>
+  `,
+  directives: [MdlUpgradeDirective]
+})
+export class MdlProgressComponent implements OnChanges {
+  @Input() buffer: number;
+  @Input() progress: number;
+  @Input() indeterminate: boolean = false;
+
+  constructor(
+    public el: ElementRef
+  ) {}
+
+  ngOnInit() {
+      this.el.nativeElement.children[0].addEventListener('mdl-componentupgraded', () => {
+        this.el.nativeElement.children[0].MaterialProgress.setProgress(this.progress);
+        this.el.nativeElement.children[0].MaterialProgress.setBuffer(this.buffer);
+      });
+  }
+
+  ngOnChanges() {
+    if(!this.el.nativeElement.children[0].MaterialProgress) return;
+    if(!this.progress) return;
+    this.el.nativeElement.children[0].MaterialProgress.setProgress(this.progress);
+    if(!this.buffer) return;
+    this.el.nativeElement.children[0].MaterialProgress.setBuffer(this.buffer);
+  }
+}
