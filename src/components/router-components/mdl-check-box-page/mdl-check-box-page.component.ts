@@ -2,7 +2,7 @@
 import { Component } from 'angular2/core';
 import { FORM_DIRECTIVES } from 'angular2/common';
 // mdlCheckBox
-import { MdlCheckBoxComponent } from '../../mdl-components/mdl-check-box/mdl-check-box.component';
+import { MdlCheckBoxComponent } from '../../mdl-check-box/mdl-check-box.component';
 let hljs = require('highlight.js/lib/highlight.js');
 
 @Component({

@@ -2,9 +2,9 @@
 import { Input, Output, Provider, Component, forwardRef, EventEmitter, HostListener } from 'angular2/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from 'angular2/common';
 // Directives
-import { MdlUpgradeDirective } from '../../../directives/mdl-upgrade.directive'
+import { MdlUpgradeDirective } from '../../directives/mdl-upgrade.directive'
 // Services
-import { MdlConfigService } from '../../../services/mdl-config.service'
+import { MdlConfigService } from '../../services/mdl-config.service'
 
 const MDL_RADIO_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
   useExisting: forwardRef(() => MdlRadioComponent), multi: true }
@@ -34,12 +34,8 @@ export class MdlRadioComponent implements ControlValueAccessor {
   @Input() class: string;
   @Input() label: string;
   @Input() value: string = '';
-  @Input() ripple: boolean = this.mdlConfig.rippleEffect;
+  @Input() ripple: boolean = MdlConfigService.rippleEffect;
   @Output() changes = new EventEmitter();
-
-  constructor(
-    public mdlConfig: MdlConfigService
-  ) {}
 
   // Needed to properly implement ControlValueAccessor.
   @HostListener('changes', ['$event'])

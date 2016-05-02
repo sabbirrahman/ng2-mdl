@@ -57,5 +57,6 @@ npm-debug.log
 /doc/
 
 # IDE #
+npm
 .idea/
 *.swp

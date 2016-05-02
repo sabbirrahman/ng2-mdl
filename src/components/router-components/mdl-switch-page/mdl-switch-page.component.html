@@ -1,38 +1,23 @@
 <section class="section--center mdl-grid mdl-grid--no-spacing">
- <div class="mdl-cell mdl-cell--8-col">
- <h4>Switch</h4>
- <section>
-   <h5>Import &amp; Inject</h5>
-   <pre><code class="typescript">
-import {MdlSwitchComponent} from 'ng2-mdl/ng2-mdl';
-@Component({
-  ...
-  directives: [MdlSwitchComponent],
-  ...
-})
-  </code></pre>
- </section>
-  <section>
-    <h5>Uses:</h5>
-<pre><code class="typescript">
+  <div class="mdl-cell mdl-cell--8-col">
+    <h4>Switch</h4>
+    <section>
+      <h5>Uses:</h5>
+      <pre><code class="typescript">
   &lt;mdlSwitch label="Switch" [(ngModel)]="example"&gt;&lt;/mdlSwitch&gt;
-  or
-  &lt;mdl-switch label="Switch" [(ngModel)]="example"&gt;&lt;/mdl-switch&gt;
-</code></pre>
-  <p>Gender:</p>
-  <mdlSwitch label="Switch" [(ngModel)]="example"></mdlSwitch>
-  <p>{{example ? "Switch On" : "Switch Off"}}</p>
-
-  </section>
-  <section>
-    <h5>Supported Attributes</h5>
-    This component comes with supports for angular2 ngModel &amp; ngFormControl directives. Here are some attributes you can use to pass data to the component.
-    <ul>
-      <li><strong>class</strong>: class of the input element.</li>
-      <li><strong>value</strong>: value of the input element. (default: true)</li>
-      <li><strong>label</strong>: text of the label element.</li>
-      <li><strong>ripple</strong>: ripple effect for the checkbox. (default: true)</li>
-    </ul>
-  </section>
+      </code></pre>
+      <mdlSwitch label="Switch" [(ngModel)]="example"></mdlSwitch>
+      <p>{{example ? "Switch On" : "Switch Off"}}</p>
+    </section>
+    <section>
+      <h5>Supported Attributes</h5>
+      <p>This component comes with supports for angular2 ngModel &amp; ngFormControl directives. Here are some attributes you can use to pass data to the component.</p>
+      <ul>
+        <li><strong>class</strong>: class of the input element.</li>
+        <li><strong>value</strong>: value of the input element. (default: true)</li>
+        <li><strong>label</strong>: text of the label element.</li>
+        <li><strong>ripple</strong>: ripple effect for the checkbox. (default: true)</li>
+      </ul>
+    </section>
   </div>
 </section>

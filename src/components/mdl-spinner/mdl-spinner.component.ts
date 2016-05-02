@@ -1,9 +1,7 @@
 // Imports from Angular2
 import { Input, Component } from 'angular2/core';
 // Directives
-import { MdlUpgradeDirective } from '../../../directives/mdl-upgrade.directive'
-// Services
-import { MdlConfigService } from '../../../services/mdl-config.service'
+import { MdlUpgradeDirective } from '../../directives/mdl-upgrade.directive'
 
 @Component({
   selector: 'mdlSpinner, mdl-spinner',
@@ -16,7 +14,6 @@ import { MdlConfigService } from '../../../services/mdl-config.service'
       }"
     >
     </div>
-
   `,
   directives: [MdlUpgradeDirective]
 })

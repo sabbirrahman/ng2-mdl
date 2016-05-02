@@ -1,43 +1,50 @@
 <section class="section--center mdl-grid mdl-grid--no-spacing">
- <div class="mdl-cell mdl-cell--8-col">
- <h4>Progress</h4>
- <section>
-   <h5>Import &amp; Inject</h5>
-   <pre><code class="typescript">
-import {MdlLayoutComponent} from 'ng2-mdl/ng2-mdl';
-@Component({
-  ...
-  directives: [MdlLayoutComponent],
-  ...
-})
-  </code></pre>
- </section>
-  <section>
-    <h5>Uses:</h5>
-<pre><code class="typescript">
-  &lt;mdlLayout&gt;&lt;/mdlLayout&gt;
-</code></pre>
-  </section>
-  <section>
-    <h5>Supported Attributes</h5>
-    <ul>
-      <li><strong>headerTitle</strong>: title for the header.</li>
-      <li><strong>drawerTitle</strong>: title for the drawer.</li>
-      <li><strong>headerMenu</strong>: MenuItem array for the header menu.</li>
-      <li><strong>drawerMenu</strong>: MenuItem array for the drawer menu.</li>
-      <li><strong>transparent</strong>: transparent header. (default: false)</li>
-      <!-- <li><strong>fixedHeader</strong>: fixed header. (default: false)</li> -->
-      <li><strong>fixedDrawer</strong>: fixed drawer. (default: false)</li>
-      <li><strong>noHeader</strong>: no header. (default: false)</li>
-      <li><strong>waterfall</strong>: waterfall header. (default: false)</li>
-    </ul>
-<pre><code class="typescript">
+  <div class="mdl-cell mdl-cell--8-col">
+    <h4>Layout</h4>
+    <section>
+      <h5>Uses:</h5>
+      <pre><code class="typescript">
+&#x3C;mdlLayout drawerTitle=&#x22;ng2-mdl&#x22; [drawerMenu]=&#x22;links&#x22; [fixedDrawer]=&#x22;true&#x22;&#x3E;
+  &#x3C;mdlHeader title=&#x22;ng2-mdl&#x22;&#x3E;&#x3C;/mdlHeader&#x3E;
+  &#x3C;main class=&#x22;mdl-layout__content&#x22; style=&#x22;padding:20px;&#x22;&#x3E;
+    &#x3C;div class=&#x22;mdl-shadow--2dp&#x22; style=&#x22;padding:10px&#x22;&#x3E;
+      &#x3C;router-outlet&#x3E;&#x3C;/router-outlet&#x3E;
+    &#x3C;/div&#x3E;
+  &#x3C;/main&#x3E;
+&#x3C;/mdlLayout&#x3E;
+      </code></pre>
+      <p>This is the code snippet for this dashboard you are viewing right now.</p>
+    </section>
+    <section>
+      <h5>Supported Attributes</h5>
+      <h6>MdlLayout</h6>
+      <ul>
+        <!-- <li><strong>fixedHeader</strong>: fixed header. (default: false)</li> -->
+        <li><strong>fixedDrawer</strong>: fixed drawer. (default: false)</li>
+        <li><strong>drawerTitle</strong>: title for the drawer.</li>
+        <li><strong>drawerMenu</strong>: MenuItem array for the drawer menu.</li>
+      </ul>
+      <h6>MdlHeader</h6>
+      <ul>
+        <li><strong>title</strong>: title for the header.</li>
+        <li><strong>menu</strong>: MenuItem array for the header menu.</li>
+        <li><strong>transparent</strong>: transparent header. (default: false)</li>
+        <li><strong>noHeader</strong>: no header. (default: false)</li>
+        <li><strong>waterfall</strong>: waterfall header. (default: false)</li>
+      </ul>
+      <h6>MdlDrawer</h6>
+      <ul>
+        <li><strong>title</strong>: title for the drawer.</li>
+        <li><strong>menu</strong>: MenuItem array for the drawer menu.</li>
+      </ul>
+      <h6>MenuItem Interface</h6>
+      <pre><code class="typescript">
   interface MenuItem {
     title: string; // Title that will appear in the menu for a menu item.
     link: string; // Link for the menu item. Don't need to provide if using routerLink
-    routerLink: string; // routerLink for angular 2 router.
+    routerLink: Array&lt;RouterLink&gt;; // routerLink Array for angular 2 router.
   }
-</code></pre>
-  </section>
+      </code></pre>
+    </section>
   </div>
 </section>

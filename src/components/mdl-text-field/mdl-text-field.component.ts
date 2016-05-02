@@ -2,9 +2,9 @@
 import { Input, Output, Provider, Component, forwardRef, EventEmitter, HostListener } from 'angular2/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from 'angular2/common';
 // Directives
-import { MdlUpgradeDirective } from '../../../directives/mdl-upgrade.directive'
+import { MdlUpgradeDirective } from '../../directives/mdl-upgrade.directive'
 // Services
-import { MdlConfigService } from '../../../services/mdl-config.service'
+import { MdlConfigService } from '../../services/mdl-config.service'
 
 const MDL_TEXT_FIELD_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
   useExisting: forwardRef(() => MdlTextFieldComponent), multi: true }
@@ -36,12 +36,8 @@ export class MdlTextFieldComponent implements ControlValueAccessor {
   @Input() value: string = '';
   @Input() type: string = 'text';
   @Input() label: string;
-  @Input() floating: boolean = this.mdlConfig.floating;
+  @Input() floating: boolean = MdlConfigService.floating;
   @Output() changes = new EventEmitter();
-
-  constructor(
-    public mdlConfig: MdlConfigService
-  ) {}
 
   // Needed to properly implement ControlValueAccessor.
   @HostListener('changes', ['$event'])

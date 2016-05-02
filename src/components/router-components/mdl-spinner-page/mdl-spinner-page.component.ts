@@ -2,7 +2,7 @@
 import { Component } from 'angular2/core';
 import { FORM_DIRECTIVES } from 'angular2/common';
 // mdlSpinner
-import { MdlSpinnerComponent } from '../../mdl-components/mdl-spinner/mdl-spinner.component';
+import { MdlSpinnerComponent } from '../../mdl-spinner/mdl-spinner.component';
 let hljs = require('highlight.js/lib/highlight.js');
 
 @Component({

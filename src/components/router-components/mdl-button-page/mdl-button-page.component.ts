@@ -2,7 +2,7 @@
 import { Component } from 'angular2/core';
 import { FORM_DIRECTIVES } from 'angular2/common';
 // mdlButton
-import { MdlButtonComponent } from '../../mdl-components/mdl-button/mdl-button.component';
+import { MdlButtonComponent } from '../../mdl-button/mdl-button.component';
 let hljs = require('highlight.js/lib/highlight.js');
 
 @Component({

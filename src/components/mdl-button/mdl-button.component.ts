@@ -1,9 +1,9 @@
 // Imports from Angular2
 import { Input, Component } from 'angular2/core';
 // Directives
-import { MdlUpgradeDirective } from '../../../directives/mdl-upgrade.directive'
+import { MdlUpgradeDirective } from '../../directives/mdl-upgrade.directive'
 // Services
-import { MdlConfigService } from '../../../services/mdl-config.service'
+import { MdlConfigService } from '../../services/mdl-config.service'
 
 @Component({
   selector: 'mdlButton, mdl-button',
@@ -24,9 +24,5 @@ import { MdlConfigService } from '../../../services/mdl-config.service'
 export class MdlButtonComponent {
   @Input() theme: string;
   @Input() raised: boolean = true;
-  @Input() ripple: boolean = this.mdlConfig.rippleEffect;
-
-  constructor(
-    public mdlConfig: MdlConfigService
-  ) {}
+  @Input() ripple: boolean = MdlConfigService.rippleEffect;
 }

@@ -1,4 +1,4 @@
-export class MdlConfigService {
-  floating : boolean = true;
-  rippleEffect : boolean = true;
+export let MdlConfigService = {
+  floating: true,
+  rippleEffect: true,
 }

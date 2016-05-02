@@ -1,40 +1,8 @@
-<!-- The drawer is always open in large screens. The header is always shown, even in small screens. -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
-            mdl-layout--fixed-header" mdlUpgrade>
-  <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
-      <div class="mdl-layout-spacer"></div>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
-                  mdl-textfield--floating-label mdl-textfield--align-right">
-        <!-- <label class="mdl-button mdl-js-button mdl-button--icon"
-               for="fixed-header-drawer-exp">
-          <i class="material-icons">search</i>
-        </label> -->
-        <div class="mdl-textfield__expandable-holder">
-          <input class="mdl-textfield__input" type="text" name="sample"
-                 id="fixed-header-drawer-exp">
-        </div>
-      </div>
-    </div>
-  </header>
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title" [routerLink]="['Dashboard']" style="cursor:pointer">ng2-mdl</span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" [routerLink]="['MdlUpgradePage']">Upgrading Components</a>
-      <a class="mdl-navigation__link" [routerLink]="['MdlTextFieldPage']">Text Fields</a>
-      <a class="mdl-navigation__link" [routerLink]="['MdlCheckBoxPage']">Check Box</a>
-      <a class="mdl-navigation__link" [routerLink]="['MdlRadioPage']">Radio Button</a>
-      <a class="mdl-navigation__link" [routerLink]="['MdlSwitchPage']">Switch</a>
-      <a class="mdl-navigation__link" [routerLink]="['MdlButtonPage']">Button</a>
-      <a class="mdl-navigation__link" [routerLink]="['MdlProgressPage']">Progress</a>
-      <a class="mdl-navigation__link" [routerLink]="['MdlSpinnerPage']">Spinner</a>
-      <a class="mdl-navigation__link" [routerLink]="['MdlLayoutPage']">Layout</a>
-      <a class="mdl-navigation__link" [routerLink]="['Dashboard']">more coming soon...</a>
-    </nav>
-  </div>
-  <main class="mdl-layout__content">
-    <div class="page-content" style="padding:20px">
+<mdlLayout drawerTitle="ng2-mdl" [drawerMenu]="links" [fixedDrawer]="true">
+  <mdlHeader title="ng2-mdl"></mdlHeader>
+  <main class="mdl-layout__content" style="padding:20px;">
+    <div class="mdl-shadow--2dp" style="padding:10px">
       <router-outlet></router-outlet>
     </div>
   </main>
-</div>
+</mdlLayout>

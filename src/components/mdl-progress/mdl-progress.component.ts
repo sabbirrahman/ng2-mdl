@@ -1,9 +1,7 @@
 // Imports from Angular2
-import { Input, Component, ElementRef, OnChanges } from 'angular2/core';
+import { Input, Component, ElementRef, OnChanges, OnInit } from 'angular2/core';
 // Directives
-import { MdlUpgradeDirective } from '../../../directives/mdl-upgrade.directive'
-// Services
-import { MdlConfigService } from '../../../services/mdl-config.service'
+import { MdlUpgradeDirective } from '../../directives/mdl-upgrade.directive'
 
 @Component({
   selector: 'mdlProgress, mdl-progress',
@@ -16,7 +14,7 @@ import { MdlConfigService } from '../../../services/mdl-config.service'
   `,
   directives: [MdlUpgradeDirective]
 })
-export class MdlProgressComponent implements OnChanges {
+export class MdlProgressComponent implements OnInit, OnChanges {
   @Input() buffer: number;
   @Input() progress: number;
   @Input() indeterminate: boolean = false;

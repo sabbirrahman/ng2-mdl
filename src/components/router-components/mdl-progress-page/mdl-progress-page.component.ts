@@ -2,7 +2,7 @@
 import { Component } from 'angular2/core';
 import { FORM_DIRECTIVES } from 'angular2/common';
 // mdlProgress
-import { MdlProgressComponent } from '../../mdl-components/mdl-progress/mdl-progress.component';
+import { MdlProgressComponent } from '../../mdl-progress/mdl-progress.component';
 let hljs = require('highlight.js/lib/highlight.js');
 
 @Component({
