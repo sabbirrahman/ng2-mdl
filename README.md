@@ -2,7 +2,7 @@
 >A tiny [Angular 2](http://angular.io) wrapper for [Material Design Lite](http://getmdl.io)
 
 ##Installation
-`not available yet! :'(`
+`npm install --save ng2-mdl`
 
 ###What is Material Design Lite
 Material Design Lite is a small component library for web project that follows [google's material design](https://www.google.com/design/spec/material-design/introduction.html) pattern.
