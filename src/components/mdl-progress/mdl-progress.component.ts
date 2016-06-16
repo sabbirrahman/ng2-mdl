@@ -1,5 +1,5 @@
 // Imports from Angular2
-import { Input, Component, ElementRef, OnChanges, OnInit } from 'angular2/core';
+import { Input, Component, ElementRef, OnChanges, OnInit } from '@angular/core';
 // Directives
 import { MdlUpgradeDirective } from '../../directives/mdl-upgrade.directive'
 

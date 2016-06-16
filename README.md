@@ -1,5 +1,5 @@
 #ng2-mdl
->A tiny [Angular 2](http://angular.io) wrapper for [Material Design Lite](http://getmdl.io)
+>A tiny [Angular 2 RC](http://angular.io) wrapper for [Material Design Lite](http://getmdl.io).
 
 ##Installation
 `npm install --save ng2-mdl`
@@ -17,6 +17,7 @@ That's already available [here](https://github.com/jadjoubran/angular-material-d
 [Introduction](https://sabbirrahman.github.io/ng2-mdl)
 [Upgrading](https://sabbirrahman.github.io/ng2-mdl/#/mdl-upgrade)
 [Text Fields](https://sabbirrahman.github.io/ng2-mdl/#/mdl-text-field)
+[Select](https://sabbirrahman.github.io/ng2-mdl/#/mdl-select)
 [Check Box](https://sabbirrahman.github.io/ng2-mdl/#/mdl-check-box)
 [Radio Button](https://sabbirrahman.github.io/ng2-mdl/#/mdl-radio)
 [Switch](https://sabbirrahman.github.io/ng2-mdl/#/mdl-switch)

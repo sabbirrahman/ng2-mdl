@@ -1,6 +1,6 @@
 // Imports from Angular2
-import { Component } from 'angular2/core';
-import { FORM_DIRECTIVES } from 'angular2/common';
+import { Component } from '@angular/core';
+import { FORM_DIRECTIVES } from '@angular/common';
 // mdlRadio
 import { MdlRadioComponent } from '../../mdl-radio/mdl-radio.component';
 let hljs = require('highlight.js/lib/highlight.js');

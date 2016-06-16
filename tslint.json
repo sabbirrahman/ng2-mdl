@@ -1,4 +1,7 @@
 {
+  "rulesDirectory": [
+    "node_modules/codelyzer"
+  ],
   "rules": {
     "member-access": false,
     "member-ordering": [
@@ -129,7 +132,7 @@
       "check-operator",
       "check-separator",
       "check-type"
-    ]
-
+    ],
+    "import-destructuring-spacing": true
   }
 }

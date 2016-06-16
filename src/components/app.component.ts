@@ -1,6 +1,6 @@
 // Imports from Angular2
-import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
-import { Component, ViewEncapsulation } from 'angular2/core';
+import { RouteConfig, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
+import { Component, ViewEncapsulation } from '@angular/core';
 // MDL Components
 import { MdlLayoutComponent, MdlHeaderComponent, MdlDrawerComponent } from './mdl-layout/mdl-layout.component';
 // MDL Directives
@@ -10,6 +10,7 @@ import { MdlConfigService } from '../services/mdl-config.service'
 // Routes
 import { Routes } from './routes';
 require('material-design-lite/dist/material');
+require('mdl-select-component/mdl-selectfield.min');
 
 @Component({
   selector: 'app',
@@ -18,7 +19,8 @@ require('material-design-lite/dist/material');
   styles: [
     require('normalize.css/normalize.css'),
     require('highlight.js/styles/default.css'),
-    require('material-design-lite/dist/material.min.css')
+    require('material-design-lite/dist/material.min.css'),
+    require('mdl-select-component/mdl-selectfield.min.css')
   ],
   directives: [
     ROUTER_DIRECTIVES,
@@ -35,6 +37,7 @@ export class App {
     { title: 'Configuration',routerLink: ['MdlConfigServicePage'] },
     { title: 'Upgrading',    routerLink: ['MdlUpgradePage']   },
     { title: 'Text Fields',  routerLink: ['MdlTextFieldPage'] },
+    { title: 'Select',       routerLink: ['MdlSelectPage']    },
     { title: 'Check Box',    routerLink: ['MdlCheckBoxPage']  },
     { title: 'Radio Button', routerLink: ['MdlRadioPage']     },
     { title: 'Switch',       routerLink: ['MdlSwitchPage']    },

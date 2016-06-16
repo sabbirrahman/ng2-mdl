@@ -1,5 +1,5 @@
 // Imports from Angular2
-import { Input, Component } from 'angular2/core';
+import { Input, Component } from '@angular/core';
 // Directives
 import { MdlUpgradeDirective } from '../../directives/mdl-upgrade.directive'
 // Services

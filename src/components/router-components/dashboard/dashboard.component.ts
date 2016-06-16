@@ -1,6 +1,6 @@
 // Import from Angular2
-import { Component } from 'angular2/core';
-import { RouterLink } from 'angular2/router';
+import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router-deprecated';
 let hljs = require('highlight.js/lib/highlight.js');
 
 @Component({

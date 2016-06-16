@@ -8,16 +8,19 @@ const helpers = require('./helpers');
 /*
  * Webpack Plugins
  */
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+// problem with copy-webpack-plugin
+var CopyWebpackPlugin = (CopyWebpackPlugin = require('copy-webpack-plugin'), CopyWebpackPlugin.default || CopyWebpackPlugin);
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
+const HtmlElementsPlugin = require('./html-elements-plugin');
 
 /*
  * Webpack Constants
  */
 const METADATA = {
   title: 'Angular 2 Material Design Lite',
-  baseUrl: '/'
+  baseUrl: '/',
+  isDevServer: helpers.isWebpackDevServer()
 };
 
 /*
@@ -40,8 +43,10 @@ module.exports = {
    * You can pass false to disable it.
    *
    * See: http://webpack.github.io/docs/configuration.html#cache
-   * cache: false,
-   *
+   */
+   //cache: false,
+
+  /*
    * The entry point for the bundle
    * Our Angular.js app
    *
@@ -49,9 +54,9 @@ module.exports = {
    */
   entry: {
 
-    'polyfills': './src/polyfills.ts',
-    'vendor': './src/vendor.ts',
-    'main': './src/main.browser.ts'
+    'polyfills': './src/polyfills.browser.ts',
+    'vendor':    './src/vendor.browser.ts',
+    'main':      './src/main.browser.ts'
 
   },
 
@@ -73,7 +78,12 @@ module.exports = {
     root: helpers.root('src'),
 
     // remove other default values
-    modulesDirectories: ['node_modules']
+    modulesDirectories: ['node_modules'],
+
+    alias: {
+      // legacy imports pre-rc releases
+      'angular2': helpers.root('node_modules/@angularclass/angular2-beta-to-rc-alias/dist/beta-17')
+    },
 
   },
 
@@ -110,7 +120,7 @@ module.exports = {
         exclude: [
           // these packages have problems with their sourcemaps
           helpers.root('node_modules/rxjs'),
-          helpers.root('node_modules/@angular2-material')
+          helpers.root('node_modules/@angular'),
         ]
       }
 
@@ -207,7 +217,7 @@ module.exports = {
      * See: https://github.com/webpack/docs/wiki/optimization#multi-page-app
      */
     new webpack.optimize.CommonsChunkPlugin({
-      name: helpers.reverse(['polyfills', 'vendor'])
+      name: ['polyfills', 'vendor'].reverse()
     }),
 
     /*
@@ -233,9 +243,34 @@ module.exports = {
      */
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-      chunksSortMode: helpers.packageSort(['polyfills', 'vendor', 'main'])
-    })
+      chunksSortMode: 'dependency'
+    }),
 
+    /*
+     * Plugin: HtmlHeadConfigPlugin
+     * Description: Generate html tags based on javascript maps.
+     *
+     * If a publicPath is set in the webpack output configuration, it will be automatically added to
+     * href attributes, you can disable that by adding a "=href": false property.
+     * You can also enable it to other attribute by settings "=attName": true.
+     *
+     * The configuration supplied is map between a location (key) and an element definition object (value)
+     * The location (key) is then exported to the template under then htmlElements property in webpack configuration.
+     *
+     * Example:
+     *  Adding this plugin configuration
+     *  new HtmlElementsPlugin({
+     *    headTags: { ... }
+     *  })
+     *
+     *  Means we can use it in the template like this:
+     *  <%= webpackConfig.htmlElements.headTags %>
+     *
+     * Dependencies: HtmlWebpackPlugin
+     */
+    new HtmlElementsPlugin({
+      headTags: require('./head-config.common')
+    })
   ],
 
   /*

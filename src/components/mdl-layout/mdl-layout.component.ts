@@ -1,6 +1,6 @@
 // Imports from Angular2
-import { Input, Component } from 'angular2/core';
-import { RouterLink } from 'angular2/router';
+import { Input, Component } from '@angular/core';
+import { RouterLink } from '@angular/router-deprecated';
 // Directives
 import { MdlUpgradeDirective } from '../../directives/mdl-upgrade.directive'
 // Interface
@@ -21,7 +21,7 @@ export interface MenuItem {
       <span class="mdl-layout-title" *ngIf="drawerTitle">{{drawerTitle}}</span>
       <nav class="mdl-navigation" *ngIf="drawerMenu">
         <a class="mdl-navigation__link"
-          *ngFor="#m of drawerMenu" [routerLink]="m.routerLink"
+          *ngFor="let m of drawerMenu" [routerLink]="m.routerLink"
           [href]="m.link">{{m.title}}
         </a>
       </nav>
@@ -68,7 +68,7 @@ export class MdlLayoutComponent {
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation" *ngIf="menu">
         <a class="mdl-navigation__link"
-          *ngFor="#m of menu" [routerLink]="m.routerLink"
+          *ngFor="let m of menu" [routerLink]="m.routerLink"
           [href]="m.link">{{m.title}}
         </a>
       </nav>
@@ -95,7 +95,7 @@ export class MdlHeaderComponent {
     <span class="mdl-layout-title" *ngIf="title">{{title}}</span>
     <nav class="mdl-navigation" *ngIf="menu">
       <a class="mdl-navigation__link"
-        *ngFor="#m of menu" [routerLink]="m.routerLink"
+        *ngFor="let m of menu" [routerLink]="m.routerLink"
         [href]="m.link">{{m.title}}
       </a>
     </nav>

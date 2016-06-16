@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 let hljs = require('highlight.js/lib/highlight.js');
 
 @Component({

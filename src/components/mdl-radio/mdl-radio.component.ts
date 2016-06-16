@@ -1,6 +1,6 @@
 // Imports from Angular2
-import { Input, Output, Provider, Component, forwardRef, EventEmitter, HostListener } from 'angular2/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from 'angular2/common';
+import { Input, Output, Provider, Component, forwardRef, EventEmitter, HostListener } from '@angular/core';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/common';
 // Directives
 import { MdlUpgradeDirective } from '../../directives/mdl-upgrade.directive'
 // Services

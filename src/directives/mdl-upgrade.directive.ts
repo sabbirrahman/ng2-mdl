@@ -1,4 +1,4 @@
-import {Directive, OnInit, ElementRef} from 'angular2/core';
+import {Directive, OnInit, ElementRef} from '@angular/core';
 declare let componentHandler: any;
 
 @Directive({
