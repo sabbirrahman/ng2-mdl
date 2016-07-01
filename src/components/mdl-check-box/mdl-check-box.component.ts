@@ -18,7 +18,7 @@ const MDL_CHECK_BOX_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
     class="mdl-checkbox mdl-js-checkbox"
     [ngClass]="{'mdl-js-ripple-effect': ripple}"
   >
-    <input #inp [checked]="value" [ngClass]="class"
+    <input #inp [checked]="value" [ngClass]="class" [disabled]="disabled"
       type="checkbox" class="mdl-checkbox__input"
       (blur)="onTouched()" (change)="changes.emit(inp.checked)"
     />
@@ -33,6 +33,7 @@ export class MdlCheckBoxComponent implements ControlValueAccessor {
   @Input() label: string;
   @Input() value: boolean = false;
   @Input() ripple: boolean = MdlConfigService.rippleEffect;
+  @Input() disabled: boolean = false;
   @Output() changes = new EventEmitter();
 
   // Needed to properly implement ControlValueAccessor.

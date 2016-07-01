@@ -19,7 +19,7 @@ const MDL_RADIO_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
     [ngClass]="{'mdl-js-ripple-effect': ripple}"
   >
     <input #inp type="radio" class="mdl-radio__button"
-      [value]="value" [ngClass]="class" [name]="name"
+      [value]="value" [ngClass]="class" [name]="name" [disabled]="disabled"
       (blur)="onTouched()" (change)="changes.emit(inp.value)"
     />
     <span class="mdl-radio__label">{{label}}</span>
@@ -35,6 +35,7 @@ export class MdlRadioComponent implements ControlValueAccessor {
   @Input() label: string;
   @Input() value: string = '';
   @Input() ripple: boolean = MdlConfigService.rippleEffect;
+  @Input() disabled: boolean = false;
   @Output() changes = new EventEmitter();
 
   // Needed to properly implement ControlValueAccessor.

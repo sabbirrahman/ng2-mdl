@@ -19,7 +19,7 @@ const MDL_SWITCH_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
     [ngClass]="{'mdl-js-ripple-effect': ripple}"
   >
     <input #inp type="checkbox" class="mdl-switch__input"
-      [checked]="value" [ngClass]="class"
+      [checked]="value" [ngClass]="class" [disabled]="disabled"
       (blur)="onTouched()" (change)="changes.emit(inp.checked)"
     />
     <span class="mdl-switch__label">{{label}}</span>
@@ -33,6 +33,7 @@ export class MdlSwitchComponent implements ControlValueAccessor {
   @Input() label: string;
   @Input() value: string = '';
   @Input() ripple: boolean = MdlConfigService.rippleEffect;
+  @Input() disabled: boolean = false;
   @Output() changes = new EventEmitter();
 
   // Needed to properly implement ControlValueAccessor.
