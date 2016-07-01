@@ -15,7 +15,7 @@ const MDL_SELECT_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
   template: `
     <div class="mdl-selectfield mdl-js-selectfield" [ngClass]="class" mdl-upgrade>
       <select class="mdl-selectfield__select"
-        [value]="value" #select [id]="id"
+        [value]="value" #select [id]="id" [disabled]="disabled"
         (blur)="onTouched()"
         (change)="changes.emit(select.value)">
         <ng-content></ng-content>
@@ -36,6 +36,7 @@ export class MdlSelectComponent implements ControlValueAccessor {
   @Input() value: string;
   @Input() label: string;
   @Input() class: string;
+  @Input() disabled: boolean = false;
   @Output() changes = new EventEmitter();
 
   // Needed to properly implement ControlValueAccessor.
