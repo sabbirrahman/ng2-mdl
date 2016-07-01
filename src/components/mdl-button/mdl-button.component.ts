@@ -14,7 +14,7 @@ import { MdlConfigService } from '../../services/mdl-config.service'
       [class.mdl-button--colored]="theme === 'primary' && raised"
       [class.mdl-button--accent]="theme === 'accent'"
       [class.mdl-button--raised]="raised"
-      (disabled)="disabled"
+      [disabled]="disabled"
     >
       <ng-content></ng-content>
     </button>
@@ -25,4 +25,5 @@ export class MdlButtonComponent {
   @Input() theme: string;
   @Input() raised: boolean = true;
   @Input() ripple: boolean = MdlConfigService.rippleEffect;
+  @Input() disabled: boolean = false;
 }

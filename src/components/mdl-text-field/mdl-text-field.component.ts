@@ -20,6 +20,7 @@ const MDL_TEXT_FIELD_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
   >
     <input #inp class="mdl-textfield__input"
       [id]="id" [type]="type" [value]="value" [ngClass]="class"
+      [disabled]="disabled"
       (blur)="onTouched()" (keyup)="changes.emit(inp.value)"
     >
     <label [attr.for]="id" class="mdl-textfield__label">{{label}}</label>
@@ -37,6 +38,7 @@ export class MdlTextFieldComponent implements ControlValueAccessor {
   @Input() type: string = 'text';
   @Input() label: string;
   @Input() floating: boolean = MdlConfigService.floating;
+  @Input() disabled: boolean = false;
   @Output() changes = new EventEmitter();
 
   // Needed to properly implement ControlValueAccessor.
