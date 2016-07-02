@@ -5,7 +5,7 @@ import { EventEmitter, HostListener } from '@angular/core';
 import { Input, Output, Component } from '@angular/core';
 import { Provider, forwardRef } from '@angular/core';
 // Directives
-import { MdlUpgradeDirective } from '../../directives/mdl-upgrade.directive'
+import { MdlDirective } from '../../directives/mdl.directive'
 
 const MDL_SELECT_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
   useExisting: forwardRef(() => MdlSelectComponent), multi: true }
@@ -13,7 +13,7 @@ const MDL_SELECT_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
 @Component({
   selector: 'mdlSelect, mdl-select',
   template: `
-    <div class="mdl-selectfield mdl-js-selectfield" [ngClass]="class" mdl-upgrade>
+    <div class="mdl-selectfield mdl-js-selectfield" [ngClass]="class" mdl>
       <select class="mdl-selectfield__select"
         [value]="value" #select [id]="id" [disabled]="disabled"
         (blur)="onTouched()"
@@ -25,7 +25,7 @@ const MDL_SELECT_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
     </div>
   `,
   directives: [
-    MdlUpgradeDirective
+    MdlDirective
   ],
   providers: [
     MDL_SELECT_VALUE_ACCESSOR

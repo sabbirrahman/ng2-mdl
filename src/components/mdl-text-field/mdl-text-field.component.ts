@@ -2,7 +2,7 @@
 import { Input, Output, Provider, Component, forwardRef, EventEmitter, HostListener } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/common';
 // Directives
-import { MdlUpgradeDirective } from '../../directives/mdl-upgrade.directive'
+import { MdlDirective } from '../../directives/mdl.directive'
 // Services
 import { MdlConfigService } from '../../services/mdl-config.service'
 
@@ -14,7 +14,7 @@ const MDL_TEXT_FIELD_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
   selector: 'mdlTextField, mdl-text-field',
   template: `
   <div
-    mdl-upgrade [class.is-dirty]="value"
+    mdl [class.is-dirty]="value"
     class="mdl-textfield mdl-js-textfield "
     [class.mdl-textfield--floating-label]="floating"
   >
@@ -27,7 +27,7 @@ const MDL_TEXT_FIELD_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
     <span class="mdl-textfield__error">{{errMsg}}</span>
   </div>
   `,
-  directives: [MdlUpgradeDirective],
+  directives: [MdlDirective],
   providers: [MDL_TEXT_FIELD_VALUE_ACCESSOR]
 })
 export class MdlTextFieldComponent implements ControlValueAccessor {

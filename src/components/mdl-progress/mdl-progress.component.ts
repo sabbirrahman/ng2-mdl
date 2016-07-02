@@ -1,18 +1,18 @@
 // Imports from Angular2
 import { Input, Component, ElementRef, OnChanges, OnInit } from '@angular/core';
 // Directives
-import { MdlUpgradeDirective } from '../../directives/mdl-upgrade.directive'
+import { MdlDirective } from '../../directives/mdl.directive'
 
 @Component({
   selector: 'mdlProgress, mdl-progress',
   template: `
-    <div mdl-upgrade [id]="id"
+    <div mdl [id]="id"
       class="mdl-progress mdl-js-progress"
       [class.mdl-progress__indeterminate]="indeterminate"
     >
     </div>
   `,
-  directives: [MdlUpgradeDirective]
+  directives: [MdlDirective]
 })
 export class MdlProgressComponent implements OnInit, OnChanges {
   @Input() buffer: number;

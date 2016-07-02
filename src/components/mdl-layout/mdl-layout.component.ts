@@ -2,7 +2,7 @@
 import { Input, Component } from '@angular/core';
 import { RouterLink } from '@angular/router-deprecated';
 // Directives
-import { MdlUpgradeDirective } from '../../directives/mdl-upgrade.directive'
+import { MdlDirective } from '../../directives/mdl.directive'
 // Interface
 export interface MenuItem {
   title: string;
@@ -13,7 +13,7 @@ export interface MenuItem {
 @Component({
   selector: 'mdlLayout, mdl-layout',
   template: `
-  <div mdlUpgrade class="mdl-layout mdl-js-layout"
+  <div mdl class="mdl-layout mdl-js-layout"
     [class.mdl-layout--fixed-drawer]="fixedDrawer"
     [class.mdl-layout--fixed-header]="fixedHeader"
   >
@@ -29,7 +29,7 @@ export interface MenuItem {
     <ng-content></ng-content>
   </div>
   `,
-  directives: [MdlUpgradeDirective]
+  directives: [MdlDirective]
 })
 export class MdlLayoutComponent {
   // Decorator
@@ -42,7 +42,7 @@ export class MdlLayoutComponent {
 @Component({
   'selector': 'mdlHeader, mdl-header',
   template: `
-  <header mdlUpgrade class="mdl-layout__header"
+  <header mdl class="mdl-layout__header"
     [class.mdl-layout__header--transparent]="transparent"
     [class.mdl-layout__header--scroll]="scrollableHeader"
     [class.mdl-layout__header--waterfall]="waterfall"
@@ -76,7 +76,7 @@ export class MdlLayoutComponent {
     <ng-content></ng-content>
   </header>
   `,
-  directives: [MdlUpgradeDirective]
+  directives: [MdlDirective]
 })
 export class MdlHeaderComponent {
   @Input() title: string;
@@ -91,7 +91,7 @@ export class MdlHeaderComponent {
 @Component({
   'selector': 'mdlDrawer, mdl-drawer',
   template: `
-  <div mdlUpgrade class="mdl-layout__drawer">
+  <div mdl class="mdl-layout__drawer">
     <span class="mdl-layout-title" *ngIf="title">{{title}}</span>
     <nav class="mdl-navigation" *ngIf="menu">
       <a class="mdl-navigation__link"
@@ -102,7 +102,7 @@ export class MdlHeaderComponent {
     <ng-content></ng-content>
   </div>
   `,
-  directives: [MdlUpgradeDirective]
+  directives: [MdlDirective]
 })
 export class MdlDrawerComponent {
   @Input() title: string;

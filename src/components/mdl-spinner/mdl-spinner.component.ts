@@ -1,12 +1,12 @@
 // Imports from Angular2
 import { Input, Component } from '@angular/core';
 // Directives
-import { MdlUpgradeDirective } from '../../directives/mdl-upgrade.directive'
+import { MdlDirective } from '../../directives/mdl.directive'
 
 @Component({
   selector: 'mdlSpinner, mdl-spinner',
   template: `
-    <div mdl-upgrade
+    <div mdl
       class="mdl-spinner mdl-js-spinner"
       [ngClass]="{
         'is-active': active,
@@ -15,7 +15,7 @@ import { MdlUpgradeDirective } from '../../directives/mdl-upgrade.directive'
     >
     </div>
   `,
-  directives: [MdlUpgradeDirective]
+  directives: [MdlDirective]
 })
 export class MdlSpinnerComponent {
   @Input() active: boolean = true;

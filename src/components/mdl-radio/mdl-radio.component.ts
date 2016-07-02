@@ -2,7 +2,7 @@
 import { Input, Output, Provider, Component, forwardRef, EventEmitter, HostListener } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/common';
 // Directives
-import { MdlUpgradeDirective } from '../../directives/mdl-upgrade.directive'
+import { MdlDirective } from '../../directives/mdl.directive'
 // Services
 import { MdlConfigService } from '../../services/mdl-config.service'
 
@@ -14,7 +14,7 @@ const MDL_RADIO_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
   selector: 'mdlRadio, mdl-radio',
   template: `
   <label
-    mdlUpgrade [class.is-checked]="value === val"
+    mdl [class.is-checked]="value === val"
     class="mdl-radio mdl-js-radio"
     [ngClass]="{'mdl-js-ripple-effect': ripple}"
   >
@@ -25,7 +25,7 @@ const MDL_RADIO_VALUE_ACCESSOR = new Provider(NG_VALUE_ACCESSOR, {
     <span class="mdl-radio__label">{{label}}</span>
   </label>
   `,
-  directives: [MdlUpgradeDirective],
+  directives: [MdlDirective],
   providers: [MDL_RADIO_VALUE_ACCESSOR]
 })
 export class MdlRadioComponent implements ControlValueAccessor {

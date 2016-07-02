@@ -4,7 +4,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 // MDL Components
 import { MdlLayoutComponent, MdlHeaderComponent, MdlDrawerComponent } from './mdl-layout/mdl-layout.component';
 // MDL Directives
-import { MdlUpgradeDirective } from '../directives/mdl-upgrade.directive';
+import { MdlDirective } from '../directives/mdl.directive';
 // Services
 import { MdlConfigService } from '../services/mdl-config.service'
 // Routes
@@ -23,11 +23,11 @@ require('mdl-select-component/mdl-selectfield.min');
     require('mdl-select-component/mdl-selectfield.min.css')
   ],
   directives: [
+    MdlDirective,
     ROUTER_DIRECTIVES,
     MdlLayoutComponent,
     MdlHeaderComponent,
-    MdlDrawerComponent,
-    MdlUpgradeDirective
+    MdlDrawerComponent
   ]
 })
 @RouteConfig(Routes)

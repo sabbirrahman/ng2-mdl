@@ -1,7 +1,7 @@
 // Imports from Angular2
 import { Input, Component } from '@angular/core';
 // Directives
-import { MdlUpgradeDirective } from '../../directives/mdl-upgrade.directive'
+import { MdlDirective } from '../../directives/mdl.directive'
 // Services
 import { MdlConfigService } from '../../services/mdl-config.service'
 
@@ -19,7 +19,7 @@ import { MdlConfigService } from '../../services/mdl-config.service'
       <ng-content></ng-content>
     </button>
   `,
-  directives: [MdlUpgradeDirective]
+  directives: [MdlDirective]
 })
 export class MdlButtonComponent {
   @Input() theme: string;
