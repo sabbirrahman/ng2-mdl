@@ -8,8 +8,13 @@ import '@angular/platform-browser';
 import '@angular/platform-browser-dynamic';
 import '@angular/core';
 import '@angular/common';
-import '@angular/http';
-import '@angular/router-deprecated';
+import '@angular/forms';
+// import '@angular/http';
+import '@angular/router';
+
+// AngularClass
+// import '@angularclass/webpack-toolkit';
+// import '@angularclass/request-idle-callback';
 
 // RxJS
 import 'rxjs/add/operator/map';
@@ -21,5 +26,6 @@ if ('production' === ENV) {
 
 } else {
   // Development
+  require('angular2-hmr');
 
 }

@@ -17,7 +17,7 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 const HMR = helpers.hasProcessFlag('hot');
 const METADATA = webpackMerge(commonConfig.metadata, {
-  host: 'localhost',
+  host: '192.168.0.102',
   port: 3000,
   ENV: ENV,
   HMR: HMR
@@ -87,8 +87,10 @@ module.exports = webpackMerge(commonConfig, {
      *
      * See: http://webpack.github.io/docs/configuration.html#output-chunkfilename
      */
-    chunkFilename: '[id].chunk.js'
+    chunkFilename: '[id].chunk.js',
 
+    library: 'ac_[name]',
+    libraryTarget: 'var',
   },
 
   plugins: [
@@ -111,7 +113,7 @@ module.exports = webpackMerge(commonConfig, {
         'NODE_ENV': JSON.stringify(METADATA.ENV),
         'HMR': METADATA.HMR,
       }
-    })
+    }),
   ],
 
   /**
