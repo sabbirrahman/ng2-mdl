@@ -19,7 +19,7 @@ const HtmlElementsPlugin = require('./html-elements-plugin');
  */
 const METADATA = {
   title: 'ng2-mdl - A component wrapper for material design lite for Angular 2',
-  baseUrl: '/ng2-mdl',
+  baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };
 
