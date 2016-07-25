@@ -1,4 +1,3 @@
-@@ -1,83 +0,0 @@
 // Imports from @angular
 import { EventEmitter, HostListener, ElementRef, Renderer } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
