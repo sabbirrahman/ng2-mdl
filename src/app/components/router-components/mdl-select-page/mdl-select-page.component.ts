@@ -10,6 +10,7 @@ let hljs = require('highlight.js/lib/highlight.js');
   directives: [MdlSelectComponent]
 })
 export class MdlSelectPageComponent {
+  binding: string = 'value3';
   ngOnInit() {
     hljs.initHighlighting();
   }

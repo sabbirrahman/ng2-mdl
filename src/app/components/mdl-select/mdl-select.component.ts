@@ -1,7 +1,7 @@
 // Imports from @angular
+import { EventEmitter, HostListener, ElementRef, Renderer } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { Input, Output, Component, forwardRef } from '@angular/core';
-import { EventEmitter, HostListener } from '@angular/core';
 // Directives
 import { MdlDirective } from '../../directives/mdl.directive'
 
@@ -39,13 +39,45 @@ export class MdlSelectComponent implements ControlValueAccessor {
   @Input() class: string;
   @Input() disabled: boolean = false;
   @Output() changes = new EventEmitter();
+  initialized: boolean = false;
+
+  constructor(
+    public _el: ElementRef,
+    public _ren: Renderer
+  ) {}
+
+  ngAfterViewChecked() {
+    if(this.value && !this.initialized)
+      this.updateSelectField();
+  }
+
+  updateSelectField() {
+    if(!this.value) return;
+    let options = this._el.nativeElement.getElementsByTagName('option');
+    let optionsEl = this._el.nativeElement
+                        .getElementsByClassName('mdl-selectfield__list-option-box')[0]
+                        .children[0].children;
+    this._ren.invokeElementMethod(
+      this._el.nativeElement.getElementsByClassName('mdl-selectfield__box')[0], 'click'
+    );
+    for(let i in options) {
+      if(options[i].value == this.value) {
+        this._ren.setElementAttribute(options[i], 'selected', 'selected');
+        this._ren.invokeElementMethod(optionsEl[i], 'click');
+      }
+    }
+    this.initialized = true;
+  }
 
   // Needed to properly implement ControlValueAccessor.
   @HostListener('changes', ['$event'])
   onChange = (_) => { console.log(); };
   @HostListener('blur', ['$event'])
   onTouched = () => { console.log(); };
-  writeValue(value: any): void { this.value = value; }
+  writeValue(value: any): void {
+    this.value = value;
+    if(!this.initialized) this.updateSelectField();
+  }
   registerOnChange(fn: (_: any) => void): void { this.onChange = fn; }
   registerOnTouched(fn: () => void): void { this.onTouched = fn; }
 }

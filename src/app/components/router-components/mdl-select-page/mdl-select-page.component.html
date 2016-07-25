@@ -8,18 +8,22 @@ npm install --save mdl-select-component
     <section>
       <h5>Uses:</h5>
       <pre><code class="typescript">
-&lt;mdlSelect&gt;
-  &lt;option value="1"&gt;Option 1&lt;/option&gt;
-  &lt;option value="2"&gt;Option 2&lt;/option&gt;
-  &lt;option value="3"&gt;Option 3&lt;/option&gt;
+Component:
+binding: sting = 'value3';
+View:
+&lt;mdlSelect [(ngModel)]="binding"&gt; &lt;!-- or [value]="binding" or value="value3" --&gt;
+  &lt;option value="value1"&gt;Option 1&lt;/option&gt;
+  &lt;option value="value2"&gt;Option 2&lt;/option&gt;
+  &lt;option value="value3"&gt;Option 3&lt;/option&gt;
 &lt;/mdlSelect&gt;
       </code></pre>
-      <mdlSelect>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
+      <mdlSelect [(ngModel)]="binding">
+        <option value="value1">Option 1</option>
+        <option value="value2">Option 2</option>
+        <option value="value3">Option 3</option>
       </mdlSelect>
     </section>
+    {{binding}}
     <section>
       <h5>Supported Attributes</h5>
       <ul>
