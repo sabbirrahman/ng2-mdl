@@ -18,7 +18,7 @@ const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 const HMR = helpers.hasProcessFlag('hot');
 const METADATA = webpackMerge(commonConfig.metadata, {
   host: '192.168.0.102',
-  port: 3000,
+  port: 3007,
   ENV: ENV,
   HMR: HMR
 });

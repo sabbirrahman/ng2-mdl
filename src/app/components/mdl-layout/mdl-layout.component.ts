@@ -1,13 +1,12 @@
 // Imports from @angular
 import { Input, Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 // Directives
 import { MdlDirective } from '../../directives/mdl.directive'
 // Interface
 export interface MenuItem {
   title: string;
   link: string;
-  routerLink: Array<RouterLink>;
+  routerLink: Array<any>;
 }
 
 @Component({

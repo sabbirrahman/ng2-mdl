@@ -13,37 +13,47 @@ export const MDL_SWITCH_VALUE_ACCESSOR: any = {
   multi: true
 };
 @Component({
-  selector: 'mdlSwitch, mdl-switch',
+  selector: 'mdlSwitch, mdl-switch, md-slide-toggle',
   template: `
   <label
-    mdl [class.is-checked]="value"
+    mdl [class.is-checked]="checked"
     class="mdl-switch mdl-js-switch"
     [ngClass]="{'mdl-js-ripple-effect': ripple}"
   >
     <input #inp type="checkbox" class="mdl-switch__input"
-      [checked]="value" [ngClass]="class" [disabled]="disabled"
-      (blur)="onTouched()" (change)="changes.emit(inp.checked)"
+      [checked]="checked" [ngClass]="class" [disabled]="disabled"
+      (blur)="onTouched()" (change)="update(inp.checked)"
     />
-    <span class="mdl-switch__label">{{label}}</span>
+    <span class="mdl-switch__label">{{placeholder}}</span>
   </label>
   `,
   directives: [MdlDirective],
   providers: [MDL_SWITCH_VALUE_ACCESSOR]
 })
 export class MdlSwitchComponent implements ControlValueAccessor {
-  @Input() class: string;
-  @Input() label: string;
-  @Input() value: string = '';
   @Input() ripple: boolean = MdlService.rippleEffect;
   @Input() disabled: boolean = false;
+  @Input() checked: boolean = false;
+  @Input() placeholder: string;
+  @Input() class: string;
+  @Input() label: string;
   @Output() changes = new EventEmitter();
+
+  ngOnChanges() {
+    if(this.label) this.placeholder = this.label;
+  }
+
+  update(checked) {
+    this.checked = checked;
+    this.changes.emit(checked);
+  }
 
   // Needed to properly implement ControlValueAccessor.
   @HostListener('changes', ['$event'])
   onChange = (_) => { console.log(); };
   @HostListener('blur', ['$event'])
   onTouched = () => { console.log(); };
-  writeValue(value: any): void { this.value = value; }
+  writeValue(checked: any): void { this.checked = checked; }
   registerOnChange(fn: (_: any) => void): void { this.onChange = fn; }
   registerOnTouched(fn: () => void): void { this.onTouched = fn; }
 }

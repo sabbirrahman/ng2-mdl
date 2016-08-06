@@ -14,7 +14,7 @@ export const MDL_RADIO_VALUE_ACCESSOR: any = {
 };
 
 @Component({
-  selector: 'mdlRadio, mdl-radio',
+  selector: 'mdlRadio, mdl-radio, md-radio-button',
   template: `
   <label
     mdl [class.is-checked]="value === val"
@@ -23,23 +23,33 @@ export const MDL_RADIO_VALUE_ACCESSOR: any = {
   >
     <input #inp type="radio" class="mdl-radio__button"
       [value]="value" [ngClass]="class" [name]="name" [disabled]="disabled"
-      (blur)="onTouched()" (change)="changes.emit(inp.value)"
+      (blur)="onTouched()" (change)="update(inp.value)"
     />
-    <span class="mdl-radio__label">{{label}}</span>
+    <span class="mdl-radio__label">{{placeholder}}</span>
   </label>
   `,
   directives: [MdlDirective],
   providers: [MDL_RADIO_VALUE_ACCESSOR]
 })
 export class MdlRadioComponent implements ControlValueAccessor {
-  val: string;
-  @Input() name: string;
-  @Input() class: string;
-  @Input() label: string;
-  @Input() value: string = '';
   @Input() ripple: boolean = MdlService.rippleEffect;
   @Input() disabled: boolean = false;
+  @Input() placeholder: string;
+  @Input() value: string = '';
+  @Input() class: string;
+  @Input() label: string;
+  @Input() name: string;
   @Output() changes = new EventEmitter();
+  val: string;
+
+  ngOnChanges() {
+    if(this.label) this.placeholder = this.label;
+  }
+
+  update(value) {
+    this.value = value;
+    this.changes.emit(value);
+  }
 
   // Needed to properly implement ControlValueAccessor.
   @HostListener('changes', ['$event'])

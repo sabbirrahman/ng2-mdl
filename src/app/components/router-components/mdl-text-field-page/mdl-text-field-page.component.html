@@ -4,9 +4,9 @@
     <section>
       <h5>Uses:</h5>
       <pre><code class="typescript">
-  &lt;mdlTextField label="eMail" type="email" errMsg="Invalid email!" [(ngModel)]="email"&gt;&lt;/mdlTextField&gt;
+  &lt;md-input placeholder="eMail" type="email" errMsg="Invalid email!" [(ngModel)]="email"&gt;&lt;/md-input&gt;
       </code></pre>
-      <mdlTextField label="eMail" type="email" errMsg="Invalid email!" [(ngModel)]="email"></mdlTextField> {{ email }}
+      <md-input placeholder="eMail" type="email" errMsg="Invalid email!" [(ngModel)]="email"></md-input> {{ email }}
     </section>
     <section>
       <h5>Supported Attributes</h5>
@@ -16,8 +16,9 @@
         <li><strong>class</strong>: class of the input element.</li>
         <li><strong>type</strong>: type of the input element. (default: text)</li>
         <li><strong>value</strong>: value of the input element.</li>
-        <li><strong>label</strong>: text of the label element.</li>
+        <li><strong>placeholder</strong>: placeholder text.</li>
         <li><strong>disabled</strong>: disable input. (default: false)</li>
+        <li><strong>required</strong>: required input. (default: false)</li>
         <li><strong>floating</strong>: floating label. (default: true)</li>
         <li><strong>errMsg</strong>: error message to display when HTML5 form validation fails.</li>
       </ul>

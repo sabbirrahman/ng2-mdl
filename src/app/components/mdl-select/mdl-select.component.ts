@@ -15,14 +15,13 @@ export const MDL_SELECT_VALUE_ACCESSOR: any = {
   selector: 'mdlSelect, mdl-select',
   template: `
     <div class="mdl-selectfield mdl-js-selectfield" [ngClass]="class" mdl>
-      <select class="mdl-selectfield__select"
-        [value]="value" #select [id]="id" [disabled]="disabled"
-        (blur)="onTouched()"
-        (change)="changes.emit(select.value)">
+      <select #select class="mdl-selectfield__select"
+        [value]="value" [id]="id" [disabled]="disabled"
+        (blur)="onTouched()" (change)="update(select.value)">
         <ng-content></ng-content>
       </select>
-      <label class="mdl-selectfield__label" [attr.for]="id">{{label}}</label>
-      <!-- <span class="mdl-selectfield__error">Select aw value</span> -->
+      <label class="mdl-selectfield__label" [attr.for]="id">{{placeholder}}</label>
+      <span class="mdl-selectfield__error">{{errMsg}}</span>
     </div>
   `,
   directives: [
@@ -33,11 +32,13 @@ export const MDL_SELECT_VALUE_ACCESSOR: any = {
   ]
 })
 export class MdlSelectComponent implements ControlValueAccessor {
-  @Input() id: string;
-  @Input() value: string;
-  @Input() label: string;
-  @Input() class: string;
   @Input() disabled: boolean = false;
+  @Input() placeholder: string;
+  @Input() errMsg: string;
+  @Input() label: string;
+  @Input() value: string;
+  @Input() class: string;
+  @Input() id: string;
   @Output() changes = new EventEmitter();
   initialized: boolean = false;
 
@@ -46,9 +47,18 @@ export class MdlSelectComponent implements ControlValueAccessor {
     public _ren: Renderer
   ) {}
 
+  ngOnChanges() {
+    if(this.label) this.placeholder = this.label;
+  }
+
   ngAfterViewChecked() {
     if(this.value && !this.initialized)
       this.updateSelectField();
+  }
+
+  update(value) {
+    this.value = value;
+    this.changes.emit(value);
   }
 
   updateSelectField() {

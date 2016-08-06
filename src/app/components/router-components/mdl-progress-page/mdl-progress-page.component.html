@@ -4,26 +4,26 @@
     <section>
       <h5>Uses:</h5>
       <pre><code class="typescript">
-  &lt;mdlProgress [indeterminate]="true"&gt;&lt;/mdlProgress&gt;
+  &lt;md-progress-bar mode="indeterminate"&gt;&lt;/md-progress-bar&gt;
       </code></pre>
-      <mdlProgress [indeterminate]="true"></mdlProgress><br>
+      <md-progress-bar mode="indeterminate"></md-progress-bar><br>
 
       <pre><code class="typescript">
-  &lt;mdlProgress [progress]="progress"&gt;&lt;/mdlProgress&gt;
+  &lt;md-progress-bar [value]="progress"&gt;&lt;/md-progress-bar&gt;
       </code></pre>
-      <mdlProgress [progress]="progress"></mdlProgress><br>
+      <md-progress-bar [value]="progress"></md-progress-bar><br>
 
       <pre><code class="typescript">
-  &lt;mdlProgress [progress]="progress2" [buffer]="buffer"&gt;&lt;/mdlProgress&gt;
+  &lt;md-progress-bar [value]="progress2" [bufferValue]="buffer"&gt;&lt;/md-progress-bar&gt;
       </code></pre>
-      <mdlProgress [progress]="progress2" [buffer]="buffer"></mdlProgress>
+      <md-progress-bar [value]="progress2" [bufferValue]="buffer"></md-progress-bar>
     </section>
     <section>
       <h5>Supported Attributes</h5>
       <ul>
-        <li><strong>progress</strong>: progress of the progress bar.</li>
-        <li><strong>buffer</strong>: buffered progress of the progress bar.</li>
-        <li><strong>indeterminate</strong>: indeterminate state. (default: false)</li>
+        <li><strong>value</strong>: progress of the progress bar.</li>
+        <li><strong>bufferValue</strong>: buffered progress of the progress bar.</li>
+        <li><strong>mode</strong>: state of the progress. (default: determinate)</li>
       </ul>
     </section>
   </div>

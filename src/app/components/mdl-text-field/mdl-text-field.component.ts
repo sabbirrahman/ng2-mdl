@@ -13,35 +13,46 @@ export const MDL_TEXT_FIELD_VALUE_ACCESSOR: any = {
   multi: true
 };
 @Component({
-  selector: 'mdlTextField, mdl-text-field',
+  selector: 'mdlTextField, mdl-text-field, md-input',
   template: `
   <div
     mdl [class.is-dirty]="value"
-    class="mdl-textfield mdl-js-textfield "
+    class="mdl-textfield mdl-js-textfield"
     [class.mdl-textfield--floating-label]="floating"
   >
-    <input #inp class="mdl-textfield__input"
-      [id]="id" [type]="type" [value]="value" [ngClass]="class"
-      [disabled]="disabled"
-      (blur)="onTouched()" (keyup)="changes.emit(inp.value)"
+    <input #inp class="mdl-textfield__input" [ngClass]="class" [required]="required"
+      [id]="id" [type]="type" [value]="value" [disabled]="disabled"
+      (blur)="onTouched()" (keyup)="update(inp.value)"
     >
-    <label [attr.for]="id" class="mdl-textfield__label">{{label}}</label>
+    <label [attr.for]="id" class="mdl-textfield__label">{{placeholder}}</label>
     <span class="mdl-textfield__error">{{errMsg}}</span>
   </div>
+
   `,
   directives: [MdlDirective],
   providers: [MDL_TEXT_FIELD_VALUE_ACCESSOR]
 })
 export class MdlTextFieldComponent implements ControlValueAccessor {
-  @Input() id: string;
-  @Input() class: string;
-  @Input() errMsg: string;
-  @Input() value: string = '';
-  @Input() type: string = 'text';
-  @Input() label: string;
   @Input() floating: boolean = MdlService.floating;
+  @Input() required: boolean = false;
   @Input() disabled: boolean = false;
+  @Input() type: string = 'text';
+  @Input() placeholder: string;
+  @Input() value: string = '';
+  @Input() errMsg: string;
+  @Input() class: string;
+  @Input() label: string;
+  @Input() id: string;
   @Output() changes = new EventEmitter();
+
+  ngOnChanges() {
+    if(this.label) this.placeholder = this.label;
+  }
+
+  update(value) {
+    this.value = value;
+    this.changes.emit(value);
+  }
 
   // Needed to properly implement ControlValueAccessor.
   @HostListener('changes', ['$event'])

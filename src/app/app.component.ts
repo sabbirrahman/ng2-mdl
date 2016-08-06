@@ -14,6 +14,25 @@ require('mdl-select-component/mdl-selectfield.min');
   encapsulation: ViewEncapsulation.None,
   template: require('./app.component.html'),
   styles: [
+    `
+    /* Scrolbar */
+    .mdl-data-table {
+      width: 100% !important;
+    }
+    *::-webkit-scrollbar {
+      border: none;
+      width: 6px;
+    }
+    *::-webkit-scrollbar-track-piece {
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 6px;
+    }
+    *::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 6px;
+      height: 6px;
+    }
+    `,
     require('normalize.css/normalize.css'),
     require('highlight.js/styles/default.css'),
     require('material-design-lite/dist/material.min.css'),

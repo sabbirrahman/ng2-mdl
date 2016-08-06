@@ -4,12 +4,12 @@
     <section>
       <h5>Uses:</h5>
       <pre><code class="typescript">
-  &lt;mdlRadio label="Male" value="male" [(ngModel)]="gender"&gt;&lt;/mdlRadio&gt;
-  &lt;mdlRadio label="Female" value="female" [(ngModel)]="gender"&gt;&lt;/mdlRadio&gt;
+  &lt;md-radio-button placeholder="Male" value="male" [(ngModel)]="gender"&gt;&lt;/md-radio-button&gt;
+  &lt;md-radio-button placeholder="Female" value="female" [(ngModel)]="gender"&gt;&lt;/md-radio-button&gt;
       </code></pre>
       <p>Gender:</p>
-      <mdlRadio label="Male"   value="male"   [(ngModel)]="gender"></mdlRadio>
-      <mdlRadio label="Female" value="female" [(ngModel)]="gender"></mdlRadio>
+      <md-radio-button placeholder="Male"   value="male"   [(ngModel)]="gender"></md-radio-button>
+      <md-radio-button placeholder="Female" value="female" [(ngModel)]="gender"></md-radio-button>
       <p>{{gender === 'male' ? "Male" : "Female"}}</p>
     </section>
     <section>
@@ -18,7 +18,7 @@
       <ul>
         <li><strong>class</strong>: class of the input element.</li>
         <li><strong>value</strong>: value of the input element.</li>
-        <li><strong>label</strong>: text of the label element.</li>
+        <li><strong>placeholder</strong>: placeholder text.</li>
         <li><strong>disabled</strong>: disable radio. (default: false)</li>
         <li><strong>ripple</strong>: ripple effect for the checkbox. (default: true)</li>
       </ul>
