@@ -1,0 +1,20 @@
+<section class="section--center mdl-grid mdl-grid--no-spacing">
+ <div class="mdl-cell mdl-cell--8-col">
+    <h4>Upgrading Components</h4>
+    <p>
+      MDL Components inside <strong>*ngIf</strong> or <strong>dynamic templates</strong> needs to be manually upgraded as per the <a href="http://www.getmdl.io/started/index.html#dynamic">[MDL docs].</a><br>
+      You can use the <strong>'MdlUpgradeDirective'</strong> directive on elements that needs to be manually upgraded.
+    </p>
+    <h5>Follow this simple step:</h5>
+    <section>
+      <p>Add the mdl, mdlUpgrade or mdl-upgrade attribute(directive) in the outer element of mdl components.</p>
+      <pre style="font-size:18px;"><code class="html">
+&lt;label <strong>mdl</strong> class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1"&gt;
+  &lt;input type="checkbox" id="switch-1" class="mdl-switch__input" checked&gt;
+  &lt;span class="mdl-switch__label"&gt;&lt;/span&gt;
+&lt;/label&gt;
+      </code></pre>
+    </section>
+    <p>Done! :)</p>
+  </div>
+</section>

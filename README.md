@@ -1,5 +1,5 @@
 #ng2-mdl
->A tiny [Angular 2 RC4](http://angular.io) wrapper for [Material Design Lite](http://getmdl.io).
+>A tiny [Angular 2 RC6](http://angular.io) wrapper for [Material Design Lite](http://getmdl.io).
 
 ##Installation
 `npm install --save ng2-mdl`

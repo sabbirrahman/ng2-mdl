@@ -10,15 +10,18 @@ const commonConfig = require('./webpack.common.js'); // the settings that are co
  * Webpack Plugins
  */
 const DefinePlugin = require('webpack/lib/DefinePlugin');
+const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
 
 /**
  * Webpack Constants
  */
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
+const HOST = process.env.HOST || '192.168.0.102';
+const PORT = process.env.PORT || 3007;
 const HMR = helpers.hasProcessFlag('hot');
 const METADATA = webpackMerge(commonConfig.metadata, {
-  host: '192.168.0.102',
-  port: 3007,
+  host: HOST,
+  port: PORT,
   ENV: ENV,
   HMR: HMR
 });
@@ -114,6 +117,15 @@ module.exports = webpackMerge(commonConfig, {
         'HMR': METADATA.HMR,
       }
     }),
+
+    /**
+       * Plugin: NamedModulesPlugin (experimental)
+       * Description: Uses file names as module name.
+       *
+       * See: https://github.com/webpack/webpack/commit/a04ffb928365b19feb75087c63f13cadfc08e1eb
+       */
+      new NamedModulesPlugin(),
+
   ],
 
   /**

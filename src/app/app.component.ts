@@ -1,18 +1,12 @@
 // Import from @angular
 import { Component, ViewEncapsulation } from '@angular/core';
-// MDL Components
-import { MdlLayoutComponent } from './components/mdl-layout/mdl-layout.component';
-import { MdlHeaderComponent } from './components/mdl-layout/mdl-layout.component';
-import { MdlDrawerComponent } from './components/mdl-layout/mdl-layout.component';
-// MDL Directives
-import { MdlDirective } from './directives/mdl.directive';
 require('material-design-lite/dist/material');
 require('mdl-select-component/mdl-selectfield.min');
 
 @Component({
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
-  template: require('./app.component.html'),
+  template: require('./app.template.html'),
   styles: [
     `
     /* Scrolbar */
@@ -34,15 +28,8 @@ require('mdl-select-component/mdl-selectfield.min');
     }
     `,
     require('normalize.css/normalize.css'),
-    require('highlight.js/styles/default.css'),
     require('material-design-lite/dist/material.min.css'),
     require('mdl-select-component/mdl-selectfield.min.css')
-  ],
-  directives: [
-    MdlDirective,
-    MdlLayoutComponent,
-    MdlHeaderComponent,
-    MdlDrawerComponent
   ]
 })
 export class App {
