@@ -5,7 +5,7 @@ import { EventEmitter, HostListener } from '@angular/core';
 // Services
 import { MdlService } from './mdl.service'
 
-export const MDL_SWITCH_VALUE_ACCESSOR: any = {
+export const MDL_SWITCH_VALUE_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => MdlSwitchComponent),
   multi: true
@@ -50,7 +50,7 @@ export class MdlSwitchComponent implements ControlValueAccessor {
   onChange = (_) => { console.log(); };
   @HostListener('blur', ['$event'])
   onTouched = () => { console.log(); };
-  writeValue(checked: any): void { this.checked = checked; }
-  registerOnChange(fn: (_: any) => void): void { this.onChange = fn; }
+  writeValue(checked: boolean): void { this.checked = checked; }
+  registerOnChange(fn: (_) => void): void { this.onChange = fn; }
   registerOnTouched(fn: () => void): void { this.onTouched = fn; }
 }

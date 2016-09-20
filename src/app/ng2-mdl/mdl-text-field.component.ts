@@ -5,7 +5,7 @@ import { Input, Output, Component } from '@angular/core';
 // Services
 import { MdlService } from './mdl.service'
 
-export const MDL_TEXT_FIELD_VALUE_ACCESSOR: any = {
+export const MDL_TEXT_FIELD_VALUE_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => MdlTextFieldComponent),
   multi: true
@@ -55,7 +55,7 @@ export class MdlTextFieldComponent implements ControlValueAccessor {
   onChange = (_) => { console.log(); };
   @HostListener('blur', ['$event'])
   onTouched = () => { console.log(); };
-  writeValue(value: any): void { this.value = value; }
-  registerOnChange(fn: (_: any) => void): void { this.onChange = fn; }
+  writeValue(value: string): void { this.value = value; }
+  registerOnChange(fn: (_) => void): void { this.onChange = fn; }
   registerOnTouched(fn: () => void): void { this.onTouched = fn; }
 }

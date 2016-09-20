@@ -3,7 +3,7 @@ import { EventEmitter, HostListener, ElementRef, Renderer } from '@angular/core'
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { Input, Output, Component, forwardRef } from '@angular/core';
 
-export const MDL_SELECT_VALUE_ACCESSOR: any = {
+export const MDL_SELECT_VALUE_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => MdlSelectComponent),
   multi: true
@@ -79,10 +79,10 @@ export class MdlSelectComponent implements ControlValueAccessor {
   onChange = (_) => { console.log(); };
   @HostListener('blur', ['$event'])
   onTouched = () => { console.log(); };
-  writeValue(value: any): void {
+  writeValue(value: string): void {
     this.value = value;
     if(!this.initialized) this.updateSelectField();
   }
-  registerOnChange(fn: (_: any) => void): void { this.onChange = fn; }
+  registerOnChange(fn: (_) => void): void { this.onChange = fn; }
   registerOnTouched(fn: () => void): void { this.onTouched = fn; }
 }
