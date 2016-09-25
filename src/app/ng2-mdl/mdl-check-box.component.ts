@@ -5,7 +5,7 @@ import { Input, Output, Component } from '@angular/core';
 // Services
 import { MdlService } from './mdl.service'
 
-export const MDL_CHECK_BOX_VALUE_ACCESSOR = {
+export const MDL_CHECK_BOX_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => MdlCheckBoxComponent),
   multi: true

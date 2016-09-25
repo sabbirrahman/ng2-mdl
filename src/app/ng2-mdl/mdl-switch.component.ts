@@ -5,7 +5,7 @@ import { EventEmitter, HostListener } from '@angular/core';
 // Services
 import { MdlService } from './mdl.service'
 
-export const MDL_SWITCH_VALUE_ACCESSOR = {
+export const MDL_SWITCH_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => MdlSwitchComponent),
   multi: true

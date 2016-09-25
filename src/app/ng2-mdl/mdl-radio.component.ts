@@ -5,7 +5,7 @@ import { Input, Output, Component } from '@angular/core';
 // Services
 import { MdlService } from './mdl.service'
 
-export const MDL_RADIO_VALUE_ACCESSOR = {
+export const MDL_RADIO_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => MdlRadioComponent),
   multi: true
