@@ -23,7 +23,7 @@
     "clean:start": "npm start",
     "clean": "npm cache clean && npm run rimraf -- node_modules doc coverage dist",
     "github-deploy:dev": "webpack --config config/webpack.github-deploy.js --progress --profile --github-dev",
-    "github-deploy:prod": "webpack --config config/webpack.github-deploy.js --progress --profile --github-prod",
+    "github-deploy:prod": "webpack --config config/webpack.github-deploy.js --progress --profile --env.github-prod",
     "github-deploy": "npm run github-deploy:dev",
     "lint": "npm run tslint \"src/**/*.ts\"",
     "prebuild:dev": "npm run clean:dist",
