@@ -1,5 +1,5 @@
 # ng2-mdl
->A tiny [Angular 2+](http://angular.io) wrapper for [Material Design Lite](http://getmdl.io).
+>An [Angular 2+](http://angular.io) component library for [Material Design Lite](http://getmdl.io).
 
 ## Installation
 `npm install --save ng2-mdl`
