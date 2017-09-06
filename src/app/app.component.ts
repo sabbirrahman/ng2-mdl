@@ -1,10 +1,8 @@
 // Import from @angular
 import { Component, ViewEncapsulation } from '@angular/core';
-require('material-design-lite/dist/material');
-require('mdl-select-component/mdl-selectfield.min');
 
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   encapsulation: ViewEncapsulation.None,
   template: require('./app.template.html'),
   styles: [
