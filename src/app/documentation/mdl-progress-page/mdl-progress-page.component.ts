@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'mdl-progress-page',
-  template: require('./mdl-progress-page.template.html')
+  templateUrl: './mdl-progress-page.template.html'
 })
 export class MdlProgressPageComponent {
   progress: number = 0;

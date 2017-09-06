@@ -19,11 +19,14 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "../node_modules/normalize.css/normalize.css",
+        "../node_modules/material-design-lite/dist/material.min.css",
+        "../node_modules/mdl-select-component/mdl-selectfield.min.css",
         "styles.scss"
       ],
       "scripts": [
-        "node_module/material-design-lite/dist/material.js",
-        "node_module/mdl-select-component/mdl-selectfield.min.js"
+        "../node_modules/material-design-lite/dist/material.js",
+        "../node_modules/mdl-select-component/mdl-selectfield.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

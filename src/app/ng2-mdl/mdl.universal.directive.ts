@@ -1,5 +1,4 @@
 import { Directive, OnInit, ElementRef } from '@angular/core';
-import { isBrowser } from 'angular2-universal';
 declare let componentHandler: any;
 
 @Directive({
@@ -8,7 +7,9 @@ declare let componentHandler: any;
 export class MdlDirective implements OnInit {
   constructor(public elem: ElementRef) {}
   ngOnInit() {
-    if (isBrowser)
+    const isNode = typeof module !== 'undefined' && 'export' in module ? true : false;
+    if (!isNode) {
       componentHandler.upgradeElements(this.elem.nativeElement);
+    }
   }
 }

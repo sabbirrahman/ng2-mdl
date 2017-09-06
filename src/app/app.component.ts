@@ -4,7 +4,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'app-root',
   encapsulation: ViewEncapsulation.None,
-  template: require('./app.template.html'),
+  templateUrl: './app.template.html',
   styles: [
     `
     /* Scrolbar */
@@ -24,10 +24,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
       border-radius: 6px;
       height: 6px;
     }
-    `,
-    require('normalize.css/normalize.css'),
-    require('material-design-lite/dist/material.min.css'),
-    require('mdl-select-component/mdl-selectfield.min.css')
+    `
   ]
 })
 export class App {

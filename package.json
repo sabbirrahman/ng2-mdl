@@ -21,7 +21,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 7000 --hmr --open",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

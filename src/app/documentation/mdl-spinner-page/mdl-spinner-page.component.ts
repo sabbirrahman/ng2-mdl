@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'mdl-spinner-page',
-  template: require('./mdl-spinner-page.template.html')
+  templateUrl: './mdl-spinner-page.template.html'
 })
 export class MdlSpinnerPageComponent {
   spinner: number = 0;
