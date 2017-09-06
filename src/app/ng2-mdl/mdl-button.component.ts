@@ -16,7 +16,13 @@ import { MdlService } from './mdl.service'
     >
       <ng-content></ng-content>
     </button>
-  `
+  `,
+  styles: [`
+    .mdl-button {
+      display: inline-flex;
+      align-items: center;
+    }
+  `]
 })
 export class MdlButtonComponent {
   @Input() ripple: boolean = MdlService.rippleEffect;
