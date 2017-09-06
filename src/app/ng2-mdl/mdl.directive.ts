@@ -1,5 +1,6 @@
 import { Directive, AfterViewInit, ElementRef } from '@angular/core';
 declare let componentHandler: any;
+declare let module: any;
 
 @Directive({
   selector: '[mdl], [mdlUpgrade], [mdl-upgrade]'
