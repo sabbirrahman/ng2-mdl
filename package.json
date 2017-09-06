@@ -26,7 +26,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "packagr": "ng-packagr -p ng-package.json"
+    "packagr": "ng-packagr -p ng-package.json",
+    "gh-pages": "./build.gh-page.sh"
   },
   "private": false,
   "dependencies": {

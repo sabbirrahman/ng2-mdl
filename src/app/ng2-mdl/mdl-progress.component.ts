@@ -16,6 +16,7 @@ export class MdlProgressComponent implements OnInit, OnChanges {
   @Input() indeterminate: boolean = false;
   @Input() progress: number;
   @Input() buffer: number;
+  @Input() id: string;
 
   @Input() bufferValue: number;
   @Input() value: number;
