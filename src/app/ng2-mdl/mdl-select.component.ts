@@ -1,7 +1,7 @@
 // Imports from @angular
-import { EventEmitter, HostListener, ElementRef, Renderer } from '@angular/core';
+import { EventEmitter, HostListener, ElementRef, Renderer, OnChanges } from '@angular/core';
+import { Input, Output, Component, forwardRef, AfterViewChecked } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { Input, Output, Component, forwardRef } from '@angular/core';
 
 export const MDL_SELECT_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -12,7 +12,7 @@ export const MDL_SELECT_VALUE_ACCESSOR: any = {
 @Component({
   selector: 'mdlSelect, mdl-select',
   template: `
-    <div class="mdl-selectfield mdl-js-selectfield" [ngClass]="class" mdl>
+    <div class="mdl-selectfield mdl-js-selectfield" [ngClass]="cls" mdl>
       <select #select class="mdl-selectfield__select"
         [value]="value" [id]="id" [disabled]="disabled"
         (blur)="onTouched()" (change)="update(select.value)">
@@ -26,16 +26,16 @@ export const MDL_SELECT_VALUE_ACCESSOR: any = {
     MDL_SELECT_VALUE_ACCESSOR
   ]
 })
-export class MdlSelectComponent implements ControlValueAccessor {
-  @Input() disabled: boolean = false;
+export class MdlSelectComponent implements OnChanges, AfterViewChecked, ControlValueAccessor {
   @Input() placeholder: string;
+  @Input('class') cls: string;
+  @Input() disabled = false;
   @Input() errMsg: string;
   @Input() label: string;
   @Input() value: string;
-  @Input() class: string;
   @Input() id: string;
   @Output() changes = new EventEmitter();
-  initialized: boolean = false;
+  initialized = false;
 
   constructor(
     public _el: ElementRef,
@@ -43,12 +43,13 @@ export class MdlSelectComponent implements ControlValueAccessor {
   ) {}
 
   ngOnChanges() {
-    if(this.label) this.placeholder = this.label;
+    if (this.label) { this.placeholder = this.label; }
   }
 
   ngAfterViewChecked() {
-    if(this.value && !this.initialized)
+    if (this.value && !this.initialized) {
       this.updateSelectField();
+    }
   }
 
   update(value) {
@@ -57,16 +58,16 @@ export class MdlSelectComponent implements ControlValueAccessor {
   }
 
   updateSelectField() {
-    if(!this.value) return;
-    let options = this._el.nativeElement.getElementsByTagName('option');
-    let optionsEl = this._el.nativeElement
+    if (!this.value) { return; }
+    const options = this._el.nativeElement.getElementsByTagName('option');
+    const optionsEl = this._el.nativeElement
                         .getElementsByClassName('mdl-selectfield__list-option-box')[0]
                         .children[0].children;
     this._ren.invokeElementMethod(
       this._el.nativeElement.getElementsByClassName('mdl-selectfield__box')[0], 'click'
     );
-    for(let i in options) {
-      if(options[i].value == this.value) {
+    for (const i in options) {
+      if (options[i].value === this.value) {
         this._ren.setElementAttribute(options[i], 'selected', 'selected');
         this._ren.invokeElementMethod(optionsEl[i], 'click');
       }
@@ -76,12 +77,12 @@ export class MdlSelectComponent implements ControlValueAccessor {
 
   // Needed to properly implement ControlValueAccessor.
   @HostListener('changes', ['$event'])
-  onChange = (_) => { console.log(); };
+  onChange = (_) => { console.log(); }
   @HostListener('blur', ['$event'])
-  onTouched = () => { console.log(); };
+  onTouched = () => { console.log(); }
   writeValue(value: string): void {
     this.value = value;
-    if(!this.initialized) this.updateSelectField();
+    if (!this.initialized) { this.updateSelectField(); }
   }
   registerOnChange(fn: (_) => void): void { this.onChange = fn; }
   registerOnTouched(fn: () => void): void { this.onTouched = fn; }

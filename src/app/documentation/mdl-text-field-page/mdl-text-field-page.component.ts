@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   templateUrl: './mdl-text-field-page.template.html'
 })
 export class MdlTextFieldPageComponent {
-  email: string = '';
+  email = '';
 }

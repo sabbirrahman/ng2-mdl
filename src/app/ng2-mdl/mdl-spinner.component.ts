@@ -15,6 +15,6 @@ import { Input, Component } from '@angular/core';
   `
 })
 export class MdlSpinnerComponent {
-  @Input() active: boolean = true;
   @Input() singleColor: number;
+  @Input() active = true;
 }

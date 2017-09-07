@@ -8,11 +8,11 @@ import { ROUTES } from './app.routes';
 import { DocumentationModule } from './documentation/documentation.module';
 import { Ng2MdlModule } from './ng2-mdl/ng2-mdl.module';
 // App is our top level component
-import { App } from './app.component';
+import { AppComponent } from './app.component';
 
 @NgModule({
-  bootstrap: [App],
-  declarations: [App],
+  bootstrap: [AppComponent],
+  declarations: [AppComponent],
   imports: [
     RouterModule.forRoot(ROUTES, { useHash: true }),
     DocumentationModule,

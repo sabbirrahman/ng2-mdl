@@ -13,14 +13,14 @@ import { OnChanges, OnInit } from '@angular/core';
   `
 })
 export class MdlProgressComponent implements OnInit, OnChanges {
-  @Input() indeterminate: boolean = false;
+  @Input() indeterminate = false;
   @Input() progress: number;
   @Input() buffer: number;
   @Input() id: string;
 
+  @Input() mode = 'determinate';
   @Input() bufferValue: number;
   @Input() value: number;
-  @Input() mode: string = 'determinate';
 
   constructor(
     public el: ElementRef
@@ -34,14 +34,14 @@ export class MdlProgressComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    if(this.indeterminate) this.mode = 'indeterminate';
-    if(this.buffer) this.bufferValue = this.buffer;
-    if(this.progress) this.value = this.progress;
+    if (this.indeterminate) { this.mode = 'indeterminate'; }
+    if (this.buffer) { this.bufferValue = this.buffer; }
+    if (this.progress) { this.value = this.progress; }
 
-    if(!this.el.nativeElement.children[0].MaterialProgress) return;
-    if(!this.value) return;
+    if (!this.el.nativeElement.children[0].MaterialProgress) { return; }
+    if (!this.value) { return; }
     this.el.nativeElement.children[0].MaterialProgress.setProgress(this.value);
-    if(!this.bufferValue) return;
+    if (!this.bufferValue) { return; }
     this.el.nativeElement.children[0].MaterialProgress.setBuffer(this.bufferValue);
   }
 }

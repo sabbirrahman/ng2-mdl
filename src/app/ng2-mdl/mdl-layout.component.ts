@@ -74,13 +74,13 @@ export class MdlLayoutComponent {
   `
 })
 export class MdlHeaderComponent {
-  @Input() title: string;
-  @Input() search: boolean = true;
-  @Input() menu: Array<MenuItem>;
-  @Input() noHeader: boolean;
-  @Input() waterfall: boolean;
-  @Input() transparent: boolean;
   @Input() scrollableHeader: boolean;
+  @Input() menu: Array<MenuItem>;
+  @Input() transparent: boolean;
+  @Input() waterfall: boolean;
+  @Input() noHeader: boolean;
+  @Input() search = true;
+  @Input() title: string;
 }
 
 @Component({

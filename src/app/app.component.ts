@@ -27,19 +27,19 @@ import { Component, ViewEncapsulation } from '@angular/core';
     `
   ]
 })
-export class App {
+export class AppComponent {
   links: Array<Object> = [
-    { title: 'Introduction', routerLink: ['/'] },
-    { title: 'Configuration',routerLink: ['/mdl-service'] },
-    { title: 'Upgrading',    routerLink: ['/mdl-upgrade'] },
-    { title: 'Text Fields',  routerLink: ['/mdl-text-field'] },
-    { title: 'Select',       routerLink: ['/mdl-select'] },
-    { title: 'Check Box',    routerLink: ['/mdl-check-box'] },
-    { title: 'Radio Button', routerLink: ['/mdl-radio'] },
-    { title: 'Switch',       routerLink: ['/mdl-switch'] },
-    { title: 'Button',       routerLink: ['/mdl-button'] },
-    { title: 'Progress',     routerLink: ['/mdl-progress'] },
-    { title: 'Spinner',      routerLink: ['/mdl-spinner'] },
-    { title: 'Layout',       routerLink: ['/mdl-layout'] }
+    { title: 'Introduction',  routerLink: ['/'] },
+    { title: 'Configuration', routerLink: ['/mdl-service'] },
+    { title: 'Upgrading',     routerLink: ['/mdl-upgrade'] },
+    { title: 'Text Fields',   routerLink: ['/mdl-text-field'] },
+    { title: 'Select',        routerLink: ['/mdl-select'] },
+    { title: 'Check Box',     routerLink: ['/mdl-check-box'] },
+    { title: 'Radio Button',  routerLink: ['/mdl-radio'] },
+    { title: 'Switch',        routerLink: ['/mdl-switch'] },
+    { title: 'Button',        routerLink: ['/mdl-button'] },
+    { title: 'Progress',      routerLink: ['/mdl-progress'] },
+    { title: 'Spinner',       routerLink: ['/mdl-spinner'] },
+    { title: 'Layout',        routerLink: ['/mdl-layout'] }
   ];
 }

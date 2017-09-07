@@ -1,9 +1,9 @@
 // Imports from @angular
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { forwardRef, EventEmitter, HostListener } from '@angular/core';
-import { Input, Output, Component } from '@angular/core';
+import { Input, Output, Component, OnChanges } from '@angular/core';
 // Services
-import { MdlService } from './mdl.service'
+import { MdlService } from './mdl.service';
 
 export const MDL_RADIO_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -20,7 +20,7 @@ export const MDL_RADIO_VALUE_ACCESSOR: any = {
     [ngClass]="{'mdl-js-ripple-effect': ripple}"
   >
     <input #inp type="radio" class="mdl-radio__button"
-      [value]="value" [ngClass]="class" [name]="name" [disabled]="disabled"
+      [value]="value" [ngClass]="cls" [name]="name" [disabled]="disabled"
       (blur)="onTouched()" (change)="update(inp.value)"
     />
     <span class="mdl-radio__label">{{placeholder}}</span>
@@ -28,19 +28,19 @@ export const MDL_RADIO_VALUE_ACCESSOR: any = {
   `,
   providers: [MDL_RADIO_VALUE_ACCESSOR]
 })
-export class MdlRadioComponent implements ControlValueAccessor {
+export class MdlRadioComponent implements OnChanges, ControlValueAccessor {
   @Input() ripple: boolean = MdlService.rippleEffect;
-  @Input() disabled: boolean = false;
   @Input() placeholder: string;
-  @Input() value: string = '';
-  @Input() class: string;
+  @Input('class') cls: string;
+  @Input() disabled = false;
   @Input() label: string;
   @Input() name: string;
+  @Input() value = '';
   @Output() changes = new EventEmitter();
   val: string;
 
   ngOnChanges() {
-    if(this.label) this.placeholder = this.label;
+    if (this.label) { this.placeholder = this.label; }
   }
 
   update(value) {
@@ -50,9 +50,9 @@ export class MdlRadioComponent implements ControlValueAccessor {
 
   // Needed to properly implement ControlValueAccessor.
   @HostListener('changes', ['$event'])
-  onChange = (_) => { console.log(); };
+  onChange = (_) => { console.log(); }
   @HostListener('blur', ['$event'])
-  onTouched = () => { console.log(); };
+  onTouched = () => { console.log(); }
   writeValue(value: string): void { this.val = value; }
   registerOnChange(fn: (_) => void): void { this.onChange = fn; }
   registerOnTouched(fn: () => void): void { this.onTouched = fn; }

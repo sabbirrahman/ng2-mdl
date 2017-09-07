@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   templateUrl: './mdl-select-page.template.html'
 })
 export class MdlSelectPageComponent {
-  binding: string = 'value3';
+  binding = 'value3';
 }

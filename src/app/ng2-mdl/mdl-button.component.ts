@@ -1,7 +1,7 @@
 // Imports from @angular
-import { Input, Component } from '@angular/core';
+import { Input, Component, OnChanges } from '@angular/core';
 // Services
-import { MdlService } from './mdl.service'
+import { MdlService } from './mdl.service';
 
 @Component({
   selector: 'mdlButton, mdl-button',
@@ -24,14 +24,14 @@ import { MdlService } from './mdl.service'
     }
   `]
 })
-export class MdlButtonComponent {
+export class MdlButtonComponent implements OnChanges {
   @Input() ripple: boolean = MdlService.rippleEffect;
-  @Input() disabled: boolean = false;
-  @Input() raised: boolean = true;
+  @Input() disabled = false;
+  @Input() raised = true;
   @Input() theme: string;
   @Input() color: string;
 
   ngOnChanges() {
-    if(this.theme) this.color = this.theme;
+    if (this.theme) { this.color = this.theme; }
   }
 }
