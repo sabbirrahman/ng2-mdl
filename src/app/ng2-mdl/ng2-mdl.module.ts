@@ -33,16 +33,12 @@ export const NG2MDL_DIRECTIVES = [
 ];
 
 @NgModule({
-  declarations: [
-    ...NG2MDL_DIRECTIVES
-  ],
+  declarations: [...NG2MDL_DIRECTIVES],
+  exports: [...NG2MDL_DIRECTIVES],
   imports: [
     RouterModule,
     CommonModule,
     FormsModule
-  ],
-  exports: [
-    ...NG2MDL_DIRECTIVES
   ]
 })
 export class Ng2MdlModule {}

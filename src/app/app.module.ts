@@ -3,7 +3,6 @@ import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { ROUTES } from './app.routes';
 // Modules
 import { DocumentationModule } from './documentation/documentation.module';
@@ -19,8 +18,7 @@ import { App } from './app.component';
     DocumentationModule,
     BrowserModule,
     Ng2MdlModule,
-    FormsModule,
-    HttpModule
+    FormsModule
   ],
   providers: []
 })
